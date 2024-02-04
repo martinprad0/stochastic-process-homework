@@ -1,0 +1,108 @@
+\documentclass[12pt]{exam}
+
+\usepackage{amsfonts, geometry, amsmath, amssymb, hyperref}
+\usepackage{tikz, circuitikz, quiver, wrapfig}
+\usepackage{algpseudocode, algorithm}
+
+\geometry{ a4paper, top=2cm, bottom=2cm, left=2cm, right=2cm }
+
+\parindent=0pt
+
+\pagestyle{head}
+%\pointsinmargin
+\addpoints
+
+%%---------------------------------------------------------------
+%% AMS-LaTeX Paper 
+%%---------------------------------------------------------------
+
+\newcommand{\angles}[1]{\ensuremath{\left\langle}#1\ensuremath{\right\rangle} }
+
+\def\N{\ensuremath{\mathbb{N}}}
+\def\Z{\ensuremath{\mathbb{Z}}}
+\def\Q{\ensuremath{\mathbb{Q}}}
+\def\R{\ensuremath{\mathbb{R}}}
+\def\C{\ensuremath{\mathbb{C}}}
+\def\S{\ensuremath{\mathbb{S}}}
+
+\usepackage{lastpage}
+\usepackage[none]{hyphenat}
+
+%%--MATH---------------------------------------------------------
+
+%%--OTHER ENVIRONMENTS--------------------------------------
+\renewcommand{\labelenumi}{{\bf \theenumi.}}
+\renewcommand{\labelenumii}{{\bf (\theenumii)}}
+\renewcommand{\labelenumiii}{{\bf (\theenumiii)}}
+%%----------------------------------------------------------
+\begin{document}
+\title{Differential Geometry}
+\author{Martín Prado - 201922940 }
+\date{\today}
+
+\maketitle
+\section*{Exercise 1.}
+Build an atlas with 2 charts over the n-dimensional sphere $\S^n := \{x \in \R^{n+1} : \|x\| = 1\}$.
+
+\vspace{5mm}
+
+\textbf{Solution.} Let $\epsilon_{i}$ be the $i$-th unitary vector from the standard basis, and let $R := \epsilon_{n+1}, -R = -\epsilon_{n+1}$ be the "north" and "south" poles of the sphere.
+
+\begin{wrapfigure}{r}{0.35 \textwidth}
+\centering
+\resizebox{0.35\textwidth}{!}{%
+\begin{circuitikz}
+\tikzstyle{every node}=[font=\small]
+\draw [](2.5,7.5) to[short] (12.5,7.5);
+\draw [](7.5,12.5) to[short] (7.5,2.5);
+\draw  (7.5,7.5) circle (2.5cm);
+\draw [](7.25,10) to[short, -o] (7.5,10);
+\draw[] (3.75,7.5) to[short] (3.5,7.5);
+\draw (5.25,8.5) to[short, -*] (5.25,8.5);
+\draw (8.25,7.5) to[short, -*] (8.25,7.5);
+\node [font=\small] at (9.25,5) {p};
+\node [font=\small] at (8.5,7.75) {p'};
+\node [font=\small] at (8.75,10.5) {R = (0,1)};
+\draw (9,5.5) to[short, -*] (9,5.5);
+\draw (3.75,7.5) to[short, -*] (3.75,7.5);
+\node [font=\small] at (3.5,7.75) {q'};
+\draw [](7.75,5) to[short, -o] (7.5,5);
+\node [font=\small] at (8.75,4.5) {-R = (0,-1)};
+\node [font=\normalsize] at (12.25,7.75) {x};
+\node [font=\normalsize] at (7.75,12) {y};
+\draw [short] (7.5,10) .. controls (8.25,7.75) and (8.25,7.75) .. (9,5.5);
+\node [font=\small] at (5,8.75) {q};
+\draw [short] (7.5,10) .. controls (5.75,8.75) and (5.75,8.75) .. (3.75,7.5);
+\end{circuitikz}
+}%
+\end{wrapfigure}
+
+The atlas with two charts that we are going to build is the following. Let $U_+ := \S^n\backslash\{R\}$ and $U_- := \S^n\backslash\{-R\}$,
+\[\mathcal{A} = \{(U_+, \hspace{2mm} \varphi_+: U_+ \mapsto \R^n),\hspace{3mm}(U_- , \hspace{2mm} \varphi_-: U_- \mapsto \R^n)\}\]
+
+Where $\varphi_+, \varphi_-$ are the stereographic projections of the sphere with respect to the poles $R, -R$:
+\[ \begin{array}{l}
+\forall x = (x_1,\cdots , x_{n+1}) \in \S^{n}:\\
+ \varphi_+ (x) := \left(\tfrac{x_1}{1-x_{n+1}}, \cdots, \tfrac{x_n}{1-x_{n+1}}\right)\\
+\varphi_- (x) := \left(\tfrac{x_1}{1+x_{n+1}}, \cdots, \tfrac{x_n}{1+x_{n+1}}\right)
+\end{array}\]
+Note that $\forall x \in \S^{n}$
+\[\varphi_-(x) = \left(\varphi_+ \circ \begin{bmatrix}
+    \epsilon_1 & \cdots & \epsilon_n & -\epsilon_{n+1}
+\end{bmatrix}\right)(x)\]
+So we only need to prove that $\varphi_+$ is a homeomorphism.
+
+\begin{enumerate}
+    \item \textbf{Bijective:} Let $y = (y_1,\cdots,y_n) \in \R^n$, and $\|\cdot\| := \|\cdot\|_2$. We define the inverse function $\varphi_+^{-1}: R^n \mapsto U_+$ as it follows:
+    \[\varphi_+^{-1}(y) = \left(\frac{2y_1}{\|y\|^2 + 1}, \cdots,\frac{2y_n}{\|y\|^2 + 1}, \frac{\|y\|^2 -1}{\|y\|^2 + 1}\right)\]
+    Note that
+    \[ \everymath{\displaystyle} \begin{array}{ll}
+        \|\varphi_+^{-1}(y)\|^2 & = \frac{1}{(\|y\|^2 + 1)^2}\left[(\|y\|^2-1)^2 + \sum_{i = 1}^n 4y_i^2\right] \\
+        & = \frac{1}{\|y\|^4+2\|y\|^2+1} \left[\|y\|^4 -2\|y\|^2 + 1 + 4\|y\|^2\right] \\
+        & = \frac{1}{\|y\|^4+2\|y\|^2+1} (\|y\|^4+2\|y\|^2+1) \\
+        & = 1
+    \end{array}\]
+\end{enumerate}
+
+
+\end{document}
