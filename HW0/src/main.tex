@@ -14,8 +14,8 @@
 % \usepackage[switch, displaymath, mathlines]{lineno}
 % \usepackage[allfiguresdraft]{draftfigure} % Disable pictures for fast rendering
 % \linenumbers{}
-\counterwithin{equation}{section}
-\newcommand\inlinetag{\stepcounter{equation}\ (\theequation)}
+% \counterwithin{equation}{subsection}
+% \newcommand\inlinetag{\stepcounter{equation}\ (\theequation)}
 
 
 %%--MATH---------------------------------------------------------
@@ -41,8 +41,8 @@
 
 % Theorems and more
 \theoremstyle{definition}
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}[theorem]
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem*{remark}{Remark}
