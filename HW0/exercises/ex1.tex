@@ -29,25 +29,55 @@ Let $(X_i)_{i\in\N}$ be a sequence of i.i.d. random variables such that $\E X_i 
 \begin{equation}\label{sloln}\tag{Strong Law of Large Numbers}
     \P\{\lim_{n\to\infty} \overline{X_n} \neq \mu\} = 0.
 \end{equation}
+\hfill $\square$
 \end{theorem}
 
 \begin{definition}[Convergence in probability]
 Let $(X_n)_{n\in \N}$ be a sequence of random variables. We say that $X_n$ converges to X in probability i.e. $X_n \overset{p}{\to} X$ when
-\[ \lim_{n\to\infty} \P\{ |X_n-X| > \varepsilon \} = 0,\hspace*{1em} \forall \varepsilon > 0. \]
+\[ \lim_{n\to\infty} \P\{ \| X_n-X \| > \varepsilon \} = 0,\hspace*{1em} \forall \varepsilon > 0. \]
 \end{definition}
 
 \begin{definition}[Convergence almost everywhere]
-    Let $(X_n)_{n\in \N}$ be a sequence of random variables. We say that $X_n$ converges to X almost everywhere (or) i.e. $X_n \overset{a.e.}{\to} X$ when
+    Let $(X_n)_{n\in \N}$ be a sequence of random variables. We say that $X_n$ converges to X almost everywhere (or almost surely) i.e. $X_n \overset{a.e.}{\to} X$ when
     \[  \P\{ \lim_{n\to\infty} X_n  \neq X \} = 0\]
 \end{definition}
 
-\begin{remark}
-
-\end{remark}
-
-According to theorem~\ref{loln} and the previous definitions, since $X_i^2$
+According to theorem~\ref{loln} and the previous definitions, since $(X_i^2)_{n\in\N}$ is still a sequence of i.i.d. random variables,
 \[ \everymath{\displaystyle}
 \begin{array}{cc}
-    \text{(a)} & \frac{1}{n}\|X_1, \ldots, X_n\|_2^2 = \frac{1}{n} \sum_{i = 1}^n X_i^2 \to \E X^2 = \Var X - \E X = 1\\
-    \text{(b)} & \frac{1}{n}\|X_1, \ldots, X_n\|_2^2 = \frac{1}{n} \sum_{i = 1}^n X_i^2 \to \E X^2 = \Var X - \E X = 1
+    \text{(a)} & \frac{1}{n}\|X_1, \ldots, X_n\|_2^2 = \frac{1}{n} \sum_{i = 1}^n X_i^2 \overset{p}{\longrightarrow} \E X^2 = \Var X - \E X = 1\\
+    \text{(b)} & \frac{1}{n}\|X_1, \ldots, X_n\|_2^2 = \frac{1}{n} \sum_{i = 1}^n X_i^2 \overset{a.e.}{\longrightarrow} \E X^2 = \Var X - \E X = 1
 \end{array} \]
+Therefore,
+\[ \|X_1, \ldots, X_n\|_2-\sqrt{n} \overset{p}{\longrightarrow} 0,\hspace*{2em}\|X_1, \ldots, X_n\|_2-\sqrt{n} \overset{a.e.}{\longrightarrow} 0. \]
+
+\begin{definition}[Convergence of distribution]
+    Let $(X_n)_{n\in \N}$ be a sequence of random variables with probability distributions $P_n$. Let $X$ a random variable with a probability distribution $P$. We say that $X_n$ converges to X in distribution i.e. $X_n \overset{d}{\to} X$ if
+    \[ \lim_{n\to\infty} \E [f(X_n)] = \E[f(X)]\]
+    for every bounded and continuous function $f : \mathcal{X}\to \R$.
+\end{definition}
+
+\begin{theorem}
+    A direct consequence of Fatou's Lemma and Dominated Convergence is that,
+    \[ X_n \overset{a.e.}{\longrightarrow} X \;\implies\; X_n \overset{p}{\longrightarrow} X \;\implies\; X_n \overset{d}{\longrightarrow}  X.\]
+    \hfill $\square$
+\end{theorem}
+
+Thus, this proves that
+\[ \everymath{\displaystyle}
+\begin{array}{cc}
+    \text{(c)} & \|X_1, \ldots, X_n\|_2-\sqrt{n} \overset{d}{\longrightarrow} 0.
+\end{array} \]
+
+\begin{definition}[Convergence in $L_p$]
+    Let $(X_n)_{n\in \N}$ be a sequence of random variables. For some $p \in [1,\infty)$, we say that $X_n$ converges to X in $L_p$ norm i.e. $X_n \overset{L_p}{\to} X$ if $\E |X_n|^p$ and $\E |X|^p$ exist, and
+    \[ \lim_{n\to\infty} \E |X_n - X|^p = 0\]
+    for every bounded and continuous function $f : \mathcal{X}\to \R$.
+\end{definition}
+
+\begin{theorem}[Exercise 1.d.]
+Convergence in $L_p$ implies convergence in $L_q$ for every $q\in [1,p)$.
+\end{theorem}
+\begin{proof}
+
+\end{proof}
