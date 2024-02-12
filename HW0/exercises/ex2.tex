@@ -1,3 +1,14 @@
 \section{Exercise 2}
 Show that for every random variable $X \in L^2$,
-\[ \E |X-\E X|^2 \leq \E |X|^2 \]
+\[ \E[\; |X-\E X|^2 \;]\leq \E [\; |X|^2 \;] . \]
+
+\subsection*{Solution}
+Since $|x|^2 = x^2$, it follows that,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{1.8}
+\begin{array}{rl}
+    \E[\; |X-\E X|^2 \;] & = \E {(X-\E X)}^2\\
+    & = \E[X^2] - E{[X]}^2\\
+    & = \E[\; |X|^2 \;] - E{[X]}^2\\
+    & \leq \E[\; |X|^2 \;] .
+\end{array} \]

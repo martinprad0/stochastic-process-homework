@@ -71,7 +71,7 @@ Thus, this proves that
 
 \begin{definition}[Convergence in $L_p$]
     Let ${(X_n)}_{n\in \N}$ be a sequence of random variables. For some $p \in [1,\infty)$, we say that $X_n$ converges to X in $L_p$ norm i.e. $X_n \overset{L_p}{\to} X$ if $\E |X_n|^p$ and $\E |X|^p$ exist, and
-    \[ \lim_{n\to\infty} \E |X_n - X|^p = 0\]
+    \[ \lim_{n\to\infty} \E |X_n - X|^p = 0.\]
     for every bounded and continuous function $f : \mathcal{X}\to \R$.
 \end{definition}
 
@@ -79,5 +79,51 @@ Thus, this proves that
 Convergence in $L_p$ implies convergence in $L_q$ for every $q\in [1,p)$.
 \end{theorem}
 \begin{proof}
-
+Hölder inequality states that for $a,b \in [1,\infty]$ such that $a^{-1} + b^{-1} = 1$ and random variables $A, B$,
+\[ \|AB\|_1 = \E |AB| \leq {(\E |A|^a)}^{a^{-1}} {(\E |B|^b)}^{b^{-1}} = \|A\|_a \|B\|_b.\] 
+By letting
+\[ A = |X_n - X|^q,\hspace*{1em} B = 1, \]
+\[ a = \frac{p}{q},\hspace*{2em} b = \frac{p}{p-q}, \]
+we obtain,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{1.8}
+\begin{array}{rl}
+    \E |X_n - X|^q & = \E||X_n - X|^q|\\
+     & \leq {(\E |X_n - X|^{q\cdot p/q})}^{q/p} \cdot {(\E |1|^{p/(p-q)})}^{(p-q)/p}\\
+     & = {(\E |X_n - X|^{p})}^{q/p}.
+\end{array} \] 
+The hypothesis of $q \in [1,p)$ is used on the fact that, if $q \geq p$, then $p-q \leq 0$, and if $ q < 1 $, then the $L_q$ norm wouldn't be defined.
+Finally, since
+\[ \lim_{n\to\infty} \E |X_n - X|^p = 0,\]
+it follows that
+\[ \lim_{n\to\infty} \E |X_n - X|^q \leq \lim_{n\to\infty} {(\E |X_n - X|^p)}^{q/p} = 0. \]
 \end{proof}
+
+\subsection*{Solution Part 2}
+
+In the first place note that the function $\|\cdot\|_2$ is invariant under rotations because for any orthogonal (rotation) matrix $O \in \{M : M^T M = I\}$,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{1.8}
+\begin{array}{rl}
+    \|OX\|_2 & = \angles{OX, OX}^{1/2}\\
+    & = \angles{X, O^T OX}^{1/2}\\
+    & = \angles{X,X}^{1/2}\\
+    & = \|X\|_2
+\end{array} . \]
+
+Therefore, for any vector $Z_n \sim \mathcal{N}(0,I_n)$ the density formula, which only depends on $\|Z_n\|_2$, is invariant under rotations. Thus, for any $n\times n$ rotation matrix $O$ and measurable set $A \subset \R^2$,
+\[ P(Z_n \in A) = P(OZ_n \in A) . \]
+Then, by normalizing everything, we would obtain that for every measurable subset of the $(n-1)$-sphere $A\subset \S^{n-1}$,
+\[ P(Z_n/\|Z_n\|_2 \in A) = P(OZ_n/\|Z_n\|_2 \in A) = P(OZ_n/\|OZ_n\|_2 \in A). \]
+So it follows that $Z_n/\|Z_n\|_2$ is uniformly distributed over the $(n-1)$-sphere.
+
+On the other hand, according to the Central Limit Theorem,
+\[ \overline{Z_n} = \frac{1}{\sqrt{n}}\sum_{i = 1}^n (X_i - \E X_i)/(\sqrt{\Var X_i}) \overset{d}{\longrightarrow} Z_n.\]
+According to the exercise's statement, $\E X_i = 0$ and $\Var X_i = 1$. Thus,
+\[ \overline{Z_n} = \frac{\sqrt{n}}{n}\sum_{i = 1}^n X_i = \sqrt{n} \cdot \overline{X_n}. \]
+Also, using the a.e.~convergence from the part 1, we can make the following approximation,
+\[ \|Z_n\|_2 \approx \sqrt{n}. \]
+Finally, it follows that
+\[ \overline{X_n} = \frac{\overline{Z_n}}{\sqrt{n}} \approx \frac{\overline{Z_n}}{\|Z_n\|_2} \overset{d}{\longrightarrow} \frac{Z_n}{\|Z_n\|_2},  \]
+which will let us conclude that the distribution of $\overline{X_n}$ which is Law$(X_1,\ldots,X_n)$ might be similar to a uniform distribution on a $(n-1)$-sphere.
+
