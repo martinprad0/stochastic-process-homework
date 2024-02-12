@@ -22,7 +22,7 @@ Consider a sequence of i.i.d.~random variables ${(X_i)}_{i\in\N}$ with $\E X_i =
 \subsection*{Solution Part 1}
 
 \begin{theorem}[Laws of Large Numbers]\label{loln}
-Let $(X_i)_{i\in\N}$ be a sequence of i.i.d. random variables such that $\E X_i = \mu$ for every $i\in\N$, and let $\overline{X_n} = \frac{1}{n} \sum_{i = 1}^n X_i$. Then,
+Let ${(X_i)}_{i\in\N}$ be a sequence of i.i.d.~random variables such that $\E X_i = \mu$ for every $i\in\N$, and let $\overline{X_n} = \frac{1}{n} \sum_{i = 1}^n X_i$. Then,
 \begin{equation}\label{wloln}\tag{Weak Law of Large Numbers}
     \lim_{n\to\infty} \P\{\|\overline{X_n} - \mu\| > \varepsilon\} = 0,\;\forall \varepsilon > 0.
 \end{equation}
@@ -33,16 +33,16 @@ Let $(X_i)_{i\in\N}$ be a sequence of i.i.d. random variables such that $\E X_i 
 \end{theorem}
 
 \begin{definition}[Convergence in probability]
-Let $(X_n)_{n\in \N}$ be a sequence of random variables. We say that $X_n$ converges to X in probability i.e. $X_n \overset{p}{\to} X$ when
+Let ${(X_n)}_{n\in \N}$ be a sequence of random variables. We say that $X_n$ converges to X in probability i.e. $X_n \overset{p}{\to} X$ when
 \[ \lim_{n\to\infty} \P\{ \| X_n-X \| > \varepsilon \} = 0,\hspace*{1em} \forall \varepsilon > 0. \]
 \end{definition}
 
 \begin{definition}[Convergence almost everywhere]
-    Let $(X_n)_{n\in \N}$ be a sequence of random variables. We say that $X_n$ converges to X almost everywhere (or almost surely) i.e. $X_n \overset{a.e.}{\to} X$ when
+    Let ${(X_n)}_{n\in \N}$ be a sequence of random variables. We say that $X_n$ converges to X almost everywhere (or almost surely) i.e. $X_n \overset{a.e.}{\to} X$ when
     \[  \P\{ \lim_{n\to\infty} X_n  \neq X \} = 0\]
 \end{definition}
 
-According to theorem~\ref{loln} and the previous definitions, since $(X_i^2)_{n\in\N}$ is still a sequence of i.i.d. random variables,
+According to {theorem}~\ref{loln} and the previous definitions, since ${(X_i^2)}_{n\in\N}$ is still a sequence of i.i.d.~random variables,
 \[ \everymath{\displaystyle}
 \begin{array}{cc}
     \text{(a)} & \frac{1}{n}\|X_1, \ldots, X_n\|_2^2 = \frac{1}{n} \sum_{i = 1}^n X_i^2 \overset{p}{\longrightarrow} \E X^2 = \Var X - \E X = 1\\
@@ -52,7 +52,7 @@ Therefore,
 \[ \|X_1, \ldots, X_n\|_2-\sqrt{n} \overset{p}{\longrightarrow} 0,\hspace*{2em}\|X_1, \ldots, X_n\|_2-\sqrt{n} \overset{a.e.}{\longrightarrow} 0. \]
 
 \begin{definition}[Convergence of distribution]
-    Let $(X_n)_{n\in \N}$ be a sequence of random variables with probability distributions $P_n$. Let $X$ a random variable with a probability distribution $P$. We say that $X_n$ converges to X in distribution i.e. $X_n \overset{d}{\to} X$ if
+    Let ${(X_n)}_{n\in \N}$ be a sequence of random variables with probability distributions $P_n$. Let $X$ a random variable with a probability distribution $P$. We say that $X_n$ converges to X in distribution i.e. $X_n \overset{d}{\to} X$ if
     \[ \lim_{n\to\infty} \E [f(X_n)] = \E[f(X)]\]
     for every bounded and continuous function $f : \mathcal{X}\to \R$.
 \end{definition}
@@ -70,7 +70,7 @@ Thus, this proves that
 \end{array} \]
 
 \begin{definition}[Convergence in $L_p$]
-    Let $(X_n)_{n\in \N}$ be a sequence of random variables. For some $p \in [1,\infty)$, we say that $X_n$ converges to X in $L_p$ norm i.e. $X_n \overset{L_p}{\to} X$ if $\E |X_n|^p$ and $\E |X|^p$ exist, and
+    Let ${(X_n)}_{n\in \N}$ be a sequence of random variables. For some $p \in [1,\infty)$, we say that $X_n$ converges to X in $L_p$ norm i.e. $X_n \overset{L_p}{\to} X$ if $\E |X_n|^p$ and $\E |X|^p$ exist, and
     \[ \lim_{n\to\infty} \E |X_n - X|^p = 0\]
     for every bounded and continuous function $f : \mathcal{X}\to \R$.
 \end{definition}
