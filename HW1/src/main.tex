@@ -1,0 +1,84 @@
+\documentclass[parskip=full]{scrartcl}
+
+
+%%--PACKAGES-----------------------------------------------------
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=black,bookmarksopen=true]{hyperref}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[round]{natbib}
+\usepackage{bookmark, amsfonts, amsthm, amsmath, amssymb, cancel, wrapfig, mathrsfs, enumitem}
+\usepackage{tikz, circuitikz, subfig, subcaption, graphicx, float}
+\bibliographystyle{plainnat}
+
+
+%%--CORRECTIONS--------------------------------------------------
+% \usepackage[switch, displaymath, mathlines]{lineno}
+% \usepackage[allfiguresdraft]{draftfigure} % Disable pictures for fast rendering
+% \linenumbers{}
+% \counterwithin{equation}{subsection}
+% \newcommand\inlinetag{\stepcounter{equation}\ (\theequation)}
+
+
+%%--MATH---------------------------------------------------------
+% Custom Letters
+\def\N{\ensuremath{\mathbb{N}}}
+\def\Z{\ensuremath{\mathbb{Z}}}
+\def\Q{\ensuremath{\mathbb{Q}}}
+\def\R{\ensuremath{\mathbb{R}}}
+\def\S{\ensuremath{\mathbb{S}}}
+
+\usepackage{bbm,dsfont}
+\def\1{\ensuremath{\mathds{1}}}
+\def\E{\ensuremath{\mathbf{E}}\:}
+\def\P{\ensuremath{\mathbf{P}}}
+\def\A{\ensuremath{\mathcal{A}}}
+\def\AA{\ensuremath{\mathscr{A}}}
+\def\CC{\ensuremath{\mathscr{C}}}
+
+% Custom text commands
+\def\Var{\ensuremath{\mathbf{Var}}\:}
+\def\Bi{\ensuremath{\mathrm{Bi}}}
+\def\Be{\ensuremath{\mathrm{Be}}}
+
+% Theorems and more
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}[theorem]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{remark}{Remark}
+
+% Custom Commands
+\newcommand{\angles}[1]{\ensuremath{\left\langle}#1\ensuremath{\right\rangle} }
+\newcommand{\floor}[1]{\ensuremath{\left\lfloor}#1\ensuremath{\right\rfloor} }
+\newcommand{\ceil}[1]{\ensuremath{\left\lceil}#1\ensuremath{\right\rceil} }
+
+% Section Numbering Fixes
+\makeatletter
+\renewcommand\thesection{}
+\renewcommand\thesubsection{\@arabic\c@section.\@arabic\c@subsection}
+\makeatother
+
+% Title Info
+\title{Stochastic Processes: Homework 1}
+\author{Martín Prado}
+\date{November 2023}
+\publishers{Universidad de los Andes $-$ Bogotá Colombia}
+
+
+%%--DOCUMENT-----------------------------------------------------
+\begin{document}
+\maketitle
+
+% \tableofcontents
+
+\input{../exercises/ex1}
+
+\input{../exercises/ex2}
+
+\input{../exercises/ex3}
+
+\input{../exercises/ex4}
+
+% \bibliography{refs}
+
+\end{document}
