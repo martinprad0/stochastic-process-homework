@@ -1,7 +1,46 @@
 \section{Exercise 3}
-Let $f : [0,1]\to \R$ be a continuos function. Show with the Law of Large Numbers that there exists a sequence of polynomial ${(P_n)}_{n\in \N}$ such that $\deg(P_n) = n$ and,
+Let $f : [0,1]\to \R$ be a continuous function. Show with the Law of Large Numbers that there exists a sequence of polynomial ${(P_n)}_{n\in \N}$ such that $\deg(P_n) = n$ and,
 \[ \lim_{n\to\infty} \sup_{x\in [0,1]} |f(x) - P_n(x)| = 0. \]
 
 \subsection*{Solution}
 
-Let $(X_n)_{n\in \N}$ be 
+The goal of this solution is to prove the Stone-Weierstrass approximation theorem using the Law of Large Numbers. I will use Hoeffding's inequality in a similar fashion its used in the Glivenko-Cantelli theorem's proof.
+
+In the first place, let ${(X_n)}_{n\in \N}$ be a sequence of random i.i.d. Bernoulli variables, each with probability $x \in [0,1]$. Define $\overline{X_n} = \sum_{i = 1}^n X_i$, and note that $\overline{X_n} \sim \Bi(n,x)$. The polynomial we are going to use in this proof is the Bernstein polynomial:
+\[ P_n(x) = \sum_{k = 0}^n \binom{n}{k} x^k {(1-x)}^{n-k} f\left(\frac{k}{n}\right) = \E \left[f\left( \frac{\overline{X_n}}{n} \right)\right].\]
+
+Now, in conjunction with the Heine-Cantor theorem, we use the fact that $f$ is a continuous on a compact set to say that $f$ is uniformly continuous. Therefore, for $\varepsilon/2 > 0$ there exists $\delta > 0$ such that
+\[ |f(x) - f(y)| < \varepsilon/2,\hspace*{1em} \text{whenever } |x-y| \leq \delta,\; \forall x,y\in[0,1]. \]
+
+We rewrite our expression as follows,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.8}
+\begin{array}{rl}
+    |f(x) - P_n(x)| & = \left|f(x) - \E \left[f\left( \tfrac{\overline{X_n}}{n} \right)\right]\right|\\
+
+    & = \left|\E \left[f(x) - f\left( \tfrac{\overline{X_n}}{n} \right) \right]\right|.
+
+\end{array}\]
+
+Then, we separate the expression in two cases.
+\[ 1 = \1\left\{ |x-\tfrac{\overline{X_n}}{n}| \leq \delta \right\}(x) + \1\left\{ |x-\tfrac{\overline{X_n}}{n}| > \delta \right\}(x). \]
+For the case $ |x-\tfrac{\overline{X_n}}{n}| \leq \delta $, use uniform continuity:
+\[ \forall n\in \N: \;\E \left[ \left( f(x) - f\left( \tfrac{\overline{X_n}}{n} \right) \right) \cdot \1\left\{ |x-\tfrac{\overline{X_n}}{n}|\leq \delta \right\} \right] < \frac{\varepsilon}{2}. \tag{1}\]
+For the case $ |x-\tfrac{\overline{X_n}}{n}| > \delta $, define $M = \|f\|_\infty = \max_{x\in [0,1]} |f(x)|$,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{1.8}
+\begin{array}{rl}
+    \forall n\in \N: 
+    & \E \left[ \left( f(x) - f\left( \tfrac{\overline{X_n}}{n} \right) \right) \cdot \1\left\{ |x-\tfrac{\overline{X_n}}{n}|> \delta \right\} \right]\\
+    \leq & 2M \; \cdot \; \E\left[ \1\left\{ |x-\tfrac{\overline{X_n}}{n}|> \delta \right\} \right]\\
+    = & 2M  \; \cdot \; \P \left\{ |x-\tfrac{\overline{X_n}}{n}|> \delta \right\}.
+\end{array}\]
+
+Since $x = \E X_n$ for every $n\in\N$, we can use Hoeffding inequality to assert that
+\[\forall x\in [0,1]:\; \P \left\{ |x-\tfrac{\overline{X_n}}{n}|> \delta \right\} \leq 2 e^{-2n\delta^2}. \tag{2} \]
+Then, choose $n_0$ big enough to satisfy $ 2 e^{-2n\delta^2} \leq \frac{\varepsilon}{4M} $ for every $n > n_0$. Finally, combine $(1),\;(2)$ to obtain,
+\[ \forall \varepsilon > 0,\; \exists n_0:\; |f(x) - P_n(x)| < \frac{\varepsilon}{2} + \frac{2M\varepsilon}{4M} = \varepsilon,\; \forall x\in[0,1],\; \forall n > n_0. \]
+Thus,
+\[ \sup_{x\in[0,1]}|f(x) - P_n(x)| < \varepsilon,\; \forall n>n_0. \]
+This implies that
+\[ \lim_{n\to \infty} \sup_{x\in[0,1]}|f(x) - P_n(x)| = 0. \]
