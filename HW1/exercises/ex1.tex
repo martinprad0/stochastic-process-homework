@@ -4,3 +4,17 @@ Show that, for a sequence $(X_n)_{n\in\N}$ of Bernoulli random variables, with $
 then,
 \[ \lim_{n\to\infty} n \cdot p_n = \lambda \]
 
+\subsection*{Solution}
+
+Using what we obtained from the other direction of the proof,
+\[ \P(X_n = k) = \binom{n}{k} p_n^k {(1-p_n)}^{n-k} = \binom{n}{k} \frac{1}{n^k}{(n\cdot p_n)}^k {(1-\frac{n\cdot p_n}{n})}^{n-k}. \]
+For $k = 0$, we have
+\[ \lim_n \P(X_n = 0) = \binom{n}{0} \frac{1}{n^0}{(n\cdot p_n)}^0{\left( 1-\frac{n\cdot p_n}{n} \right)}^{n} = {\left( 1-p_n \right)}^n = e^{-\lambda}. \]
+Taking logarithms at both side will leave us with
+\[ \lim_n n \ln \left( 1-p_n \right) = -\lambda.\]
+Using Taylor's expansion, we can assert that
+\[ - \ln\left( 1-p_n \right) = p_n + o(p_n). \]
+Finally,
+\[- \lim_n n \ln \left( 1-p_n \right) = \lim_n n(p_n + o(p_n)) = \lambda.\]
+Since $p_n$ dominates over $o(p_n)$, we can conclude that
+\[ \lim_n n \cdot p_n = \lambda. \]

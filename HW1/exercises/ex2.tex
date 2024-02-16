@@ -2,14 +2,65 @@
 Prove the following theorem for $\tau = 0$ and $\tau = \infty$.
 
 \begin{theorem}
-    For any given $X$ with $F_X$ and $\overline{F}_X(x) = 1- F_X(x)$, $x\in \R$ and 
+    For any given $X$ with $F_X$ and $\overline{F}_X(x) = 1- F_X(x)$. Also let $M_n = X_{n:n}$. For $x\in \R$, if
     \begin{itemize}
         \item $\tau \in [0,\infty]$
-        \item $(u_n)_{n\in\N}$ a non-decreasing sequence.
+        \item $(u_n)_{n\in\N}$ a non-decreasing sequence,
     \end{itemize}
-    Then the following are equivalent,
+    then the following items are equivalent,
     \begin{enumerate}
-        \item $\lim_{n\to\infty} \P(X_{n:n} \leq u_n) = e^{-\tau}$
+        \item $\lim_{n\to\infty} \P(M_n \leq u_n) = e^{-\tau}$
         \item $\lim_{n\to\infty} n \overline{F}_X(u_n) = \tau$.
     \end{enumerate}
 \end{theorem}
+
+\subsection*{Solution $\boldsymbol{\tau = 0}$}
+
+\begin{itemize}
+    \item $(2)\implies (1)$ If $n\cdot \ol{F}(u_n) \to 0$, then $\ol{F}(u_n) = o(1/n)$. Therefore,
+    
+    \[ \everymath{\displaystyle}
+    \arraycolsep=1.8pt\def\arraystretch{1.8}
+    \begin{array}{rll}
+        \lim_n \P(M_n \leq u_n) & = \lim_n {F(u_n)}^n = \lim_n {(1-\ol{F}(u_n))}^n\\
+        & = \lim_n {(1-o\left( \tfrac{1}{n} \right))}^n
+    \end{array} \]
+    What this means is that for every $\varepsilon > 0$, we will eventually have that 
+    \[ \tfrac{-\varepsilon}{n} \leq  -\ol F(u_n) \leq \tfrac{\varepsilon}{n}. \]
+    In particular, for every $\varepsilon > 0$,
+    \[e^{-\varepsilon} \leq \lim_n {(1-\tfrac{\varepsilon}{n})}^n \leq \lim_n {(1-\ol{F}(u_n))}^n \leq \lim_n {(1+\tfrac{\varepsilon}{n})}^n = e^{\varepsilon}. \]
+    Therefore, by making $\varepsilon$ go to $0$ we would obtain,
+    \[ 1 \leq \lim_n {(1-\ol{F}(u_n))}^n \leq 1. \]
+    \item $(1)\implies (2)$ Now, the hypothesis says that
+    \[ \P(M_n \leq u_n) = \lim_n {(1-\ol{F}(u_n))}^n = 1. \]
+    To prove that $\ol F(u_n) \to 0$, we use the same argument from the original proof. If $\liminf_n \ol{F}(u_n) = \alpha > 0$, then there exists a subsequence $u_{n_k} \subset u_n$ such that 
+    \[ 1 = \lim_k {(1-\ol{F}(u_{n_k}))}^{n_k} \leq \lim_k {(1-\alpha)}^{n_k} = 0. \]
+    With that in mind, we take logarithm at both sides to obtain
+    \[ \lim_n n\cdot \ln((1-\ol{F}(u_{n}))) = 0.\]
+    From Taylor's formula, $- \ln(1-x) = x + o(x)_{x\to 0+}$. Thus,
+    \[ -0 = - \lim_n n\cdot \ln((1-\ol{F}(u_{n}))) = \lim_n n \ol{F}(u_{n}) \]
+\end{itemize}
+
+\subsection*{Solution $\boldsymbol{\tau = \infty}$}
+
+\begin{itemize}
+    \item $(2)\implies (1)$ $n\cdot \ol{F}(u_n) \to \infty$ is equivalent to
+    \[ \lim_n \frac{1/\ol{F}(u_n)}{n} = 0. \]
+    Which by definition means that $ \ol{F}(u_n)^{-1} = o(\tfrac{1}{n}) $. This implies that for every $\varepsilon>0$,
+    \[ {\ol{F}(u_n)}^{-1} \leq \varepsilon n, \text{ (eventually)} \]
+    \[ \implies -\ol{F}(u_n) \leq -\frac{\varepsilon'}{n} \]
+    \[ \everymath{\displaystyle}
+    \arraycolsep=1.8pt\def\arraystretch{1.8}
+    \begin{array}{rll}
+        \lim_n \P(M_n \leq u_n) & = \lim_n {F(u_n)}^n = \lim_n {(1-\ol{F}(u_n))}^n\\
+        & \leq \lim_n {(1-\tfrac{\varepsilon}{n})}^n = e^{-\varepsilon}.
+    \end{array} \]
+    By making $\varepsilon \to \infty$, we can conclude that
+    \[ \lim_n \P(M_n \leq u_n) = 0. \]
+    \item $(1)\implies (2)$ Now, note that
+    \[ \lim_n n\cdot \ln((1-\ol{F}(u_{n}))) = -\infty.\]
+    Using Taylor's polynomial like we did in the case $\tau = 0$, will give us that
+    \[ \lim_n n\cdot (\ol{F}(u_{n}) + o(\ol{F}(u_{n}))) = \infty.  \]
+    Since, by definition, $\ol{F}(u_{n})$ dominates over $o(\ol{F}(u_{n}))$, we can conclude that
+    \[  \lim_n n\cdot \ol{F}(u_{n}) = \infty.\]
+\end{itemize}

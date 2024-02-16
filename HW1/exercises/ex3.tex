@@ -1,1 +1,57 @@
 \section{Exercise 3}
+
+For the following theorem, give two examples where they satisfy item 2 and two examples where they don't.
+
+\begin{theorem}
+    Let $F$ be a probability distribution and $\ol{F}(x) = 1-F(x)$. Then, define
+    \[ x_F = F^{-1}(x) = \inf\{t > 0 \;|\; F(t) = 1\}. \]
+    If these two conditions are satisfied:
+    \begin{itemize}
+        \item $x_F \leq \infty$,
+        \item $\tau \in (0,\infty)$,
+    \end{itemize}
+    Then, the following items are equivalent
+    \begin{enumerate}
+        \item There exists a sequence ${(u_n)}_{n\in\N}$ such that
+        \[ \lim_n n \cdot \ol{F}(u_n) = \tau. \]
+        \item 
+        \[ \lim_{x\to x_F-} \frac{\ol{F}(x)}{\ol{F}(x-)}. \]
+    \end{enumerate}
+    Note that if $F$ is discrete and $x_F = \infty$, then item 2.~is equivalent to
+    \[ \lim_{n \to \infty} \frac{f(n)}{\ol{F}(n)} = 0.\]
+\end{theorem}
+\subsection*{Solution Good Examples}
+
+\begin{enumerate}
+    \item 
+\end{enumerate}
+
+\subsection*{Solution Bad Examples}
+
+\begin{enumerate}
+    \item \textbf{Log Distribution:} For $0 <p < 1$, we define: 
+    \[ F(k) = 1+\frac{\beta_k}{\ln(1-p)},\hspace*{1em} \ol{F}(k) = \frac{\beta_k}{-\ln(1-p)}, \]
+    \[ f(k)= \frac{-p}{\ln(1-p)(1-p)}, \]
+    where 
+    \[ \beta_k = \beta(p; k+1, 0) = \int_{0}^p t^{k}{(1-t)}^{-1} dt ,\]
+    \[ \frac{f(k)}{\ol{F}(k)} = \frac{p}{(1-p)} \cdot \frac{1}{\beta_k}.\]
+    The series expansion of $\beta_k$ is the following
+    \[ \beta_k = \frac{p^{k+1}}{k+1} + \frac{p^{k+2}}{k+2} + \frac{p^{k+3}}{k+3} + \cdots = \sum_{i = k+1}^\infty \frac{p^{i}}{i}. \]
+    This series converges for every $k\in\N$ since $p < 1$ (ratio test). Also, the sequence $\beta_k$ is decreasing because less positive terms are being summed when $k$ is increased, and thus, $\lim_k \beta_k = 0$. Therefore,
+    \[ \lim_k \frac{p}{(1-p)} \cdot \frac{1}{\beta_k} = \infty. \]
+
+    \item \textbf{Beta Negative Binomial:} For $\alpha, \beta > 0 \in \R$ and $r\in\N$, define
+    \[ f(k) = \binom{r+k-1}{k} \frac{B(\alpha + r, \beta+k)}{B(\alpha,\beta)}, \]
+    where
+    \[ B(x,y) = \frac{\Gamma(x)\Gamma(y)}{\Gamma(x+y)}. \]
+    Then, by Stirling's approximation we have that
+    \[ f(k) \sim \frac{\Gamma(\alpha + r )}{\Gamma(r)B(\alpha,\beta)} \frac{k^{r-1}}{{(\beta+k)}^{r+\alpha}}\]
+    Thus, we can approximate the tail of the distribution with the following integral:
+    \[ C = \frac{\Gamma(\alpha + r )}{\Gamma(r)B(\alpha,\beta)}, \]
+    \[ \everymath{\displaystyle}
+    \arraycolsep=1.8pt\def\arraystretch{2.5}
+    \begin{array}{rl}
+        \ol{F}(n) & \sim C\int_{n}^{\infty} \frac{x^{r-1}}{{(x-\beta)}^{r+\alpha}} dx\\
+        & = -C \frac{x^r \cdot {}_2F_1(1,1-a;r+1; \tfrac{x}{b}) }{br{(x-\beta)}^{r+a-1}}
+    \end{array} \]
+\end{enumerate}
