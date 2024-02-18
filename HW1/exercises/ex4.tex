@@ -62,7 +62,18 @@ The distribution $F$ from part 2 is a type I Pareto distribution
     1- {\left( \frac{\sigma}{x} \right)}^{\alpha} & x > \sigma.
 \end{cases} \]
 with parameters $\alpha = \sigma = 1$. Therefore, the condition required for it to have the $k$-moment is that $k < \alpha$. Since $\alpha = 1$, it doesn't have any finite moments. Using the formula for the $i$-th statistic, we obtain
-\[ F_{i:n}(x) = \sum_{j = i}^n \binom{n}{j} F^{j}(x)\overline{F}^{n-j}(x)\]
+\[ F_{i:n}(x) = \sum_{j = i}^n \binom{n}{j} F^{j}(x)\ol{F}^{n-j}(x)\]
+\[ = \sum_{j = i}^n \binom{n}{j} {(1-x^{-1})}^{j} x^{-n+j}. \]
+Also,
+\[ f_{i:n}(x) = \frac{1}{i}\cdot\binom{n}{i} f(x) F^{i-1}(x)\ol{F}^{n-i}(x) \]
+\[ = \frac{1}{i}\cdot\binom{n}{i} x^{-2} {(1-x^{-1})}^{i-1}x^{i-n} \]
+Thus, the formula for the $k$-moment is the following
+
+\[ E[X^k] = \frac{1}{i}\cdot\binom{n}{i} \int_{1}^\infty \underbrace{x^{i+k} x^{-2-n}}_{\text{dominant}} {(1-x^{-1})}^{i-1} dx \]
+
+This last integral converges if $n+2-i-k > 1$, thus, the only moments available are when $k < n-1-i$.
+
+For the uniform norm I did the same as the previous part.
 
 \newpage
 

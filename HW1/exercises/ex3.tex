@@ -23,7 +23,27 @@ For the following theorem, give two examples where they satisfy item 2 and two e
 \subsection*{Solution Good Examples}
 
 \begin{enumerate}
-    \item 
+    \item \textbf{Zeta Distribution:} For this distribution, let $s \in (1,\infty)$ and $k \in \Z^+$. Then, for $X\sim \text{Zeta}(s)$,
+    \[ f(k) = \frac{1}{k^s \zeta(s)}, \]
+    \[ F(k) = \P\{X \leq k\} =\dfrac{\sum_{i = 1}^k i^{-s}}{\zeta(s)}= \dfrac{\sum_{i = 1}^k i^{-s}}{\sum_{i = 1}^\infty i^{-s}}.\]
+    Thus,
+    \[  \ol{F}(k) = 1-\dfrac{\sum_{i = 1}^k i^{-s}}{\sum_{i = 1}^\infty i^{-s}} = \dfrac{\sum_{i = k+1}^\infty i^{-s}}{\sum_{i = 1}^\infty i^{-s}} = \dfrac{\sum_{i = k+1}^\infty i^{-s}}{\zeta(s)} \]
+    Asymptotically, 
+    \[ \ol{F}(k) \sim \int_{k}^{\infty} x^{-s} dx = \frac{1}{s-1}k^{-s+1}.\]
+    Therefore,
+    \[ \frac{f(k)}{\ol{F}(k)} \sim \frac{1}{s-1} \frac{k^{-s}}{{k}^{-s+1}} \sim k^{-1} \to 0 \]
+    \item \textbf{Gauss-Kuzmin Distribution:} For this distribution,
+    \[ f(k) = -\log_2\left[ 1-\frac{1}{{(k+1)}^2} \right] .\]
+    \[ \ol{F}(k) = \log_2\left( \frac{k+2}{k+1} \right) \]
+    Thus,
+    \[ \everymath{\displaystyle}
+    \arraycolsep=1.8pt\def\arraystretch{2.4}
+    \begin{array}{rl}
+        \lim_{k\to\infty} \frac{\ol{F}(k)}{\ol{F}(k-1)} & = \lim_{k\to\infty}\frac{\log(k+2)-\log(k+1)}{\log(k+1)-\log(k)}\\
+        & = \lim_{k\to\infty} \dfrac{\frac{1}{k+2} - \frac{1}{k+1}}{\frac{1}{k+1} - \frac{1}{k}}\\
+        & = \lim_{k\to\infty} \frac{(k+1) - (k+2)}{(k+2)\cdot (k+1)} \cdot \frac{(k+1)\cdot (k)}{(k) - (k+1)}\\
+        & = \lim_{k\to \infty} \frac{-k^2-k}{-k^2-3k-2} = 1
+    \end{array}\]
 \end{enumerate}
 
 \subsection*{Solution Bad Examples}
@@ -40,6 +60,23 @@ For the following theorem, give two examples where they satisfy item 2 and two e
     This series converges for every $k\in\N$ since $p < 1$ (ratio test). Also, the sequence $\beta_k$ is decreasing because less positive terms are being summed when $k$ is increased, and thus, $\lim_k \beta_k = 0$. Therefore,
     \[ \lim_k \frac{p}{(1-p)} \cdot \frac{1}{\beta_k} = \infty. \]
 
+    
+\end{enumerate}
+
+\subsection*{Failed Attempts}
+
+\begin{enumerate}
+    \item \textbf{Zipf-Mandelbrot Distribution:} Note that what played in favor for the last example was the heaviness of the tails. In this next case, something similar will happen. For $N \in \Z^+, q \geq 0, s > 0$, a random variable $X_{N,q,s}$ with the Zipf-Mandelbrot distribution has the following properties,
+    \[ f(k) = f_{N,q,s}(k) = \frac{1}{{(k+q)}^s}\cdot \frac{1}{H_{N,q,s}}, \]
+    where
+    \[ H_{N,q,s} = \sum_{i = 1}^N \frac{1}{{(i+q)}^s}. \]
+    As a matter of fact, when $q = 0$ and $N\to\infty$, $X_{N,0,s}$ converges in distribution to a zeta distribution. Now,
+    \[ F(k) = \frac{H_{k,q,s}}{H_{N,q,s}} \]
+    and thus,title
+    \[ \ol{F}(k) = \frac{\sum_{i = k+1}^N{(i+q)}^{-s}}{H_{N,q,s}}.\]
+    Asymptotically,
+    \[ \ol{F}(k) \sim \int_{k}^N {(x+q)}^{-s} dx = \frac{1}{s-1}\left( k^{1-s} - N^{1-s} \right). \]
+    Hmmmm, it seems that it has finite support.
     \item \textbf{Beta Negative Binomial:} For $\alpha, \beta > 0 \in \R$ and $r\in\N$, define
     \[ f(k) = \binom{r+k-1}{k} \frac{B(\alpha + r, \beta+k)}{B(\alpha,\beta)}, \]
     where
@@ -52,6 +89,11 @@ For the following theorem, give two examples where they satisfy item 2 and two e
     \arraycolsep=1.8pt\def\arraystretch{2.5}
     \begin{array}{rl}
         \ol{F}(n) & \sim C\int_{n}^{\infty} \frac{x^{r-1}}{{(x-\beta)}^{r+\alpha}} dx\\
-        & = -C \frac{x^r \cdot {}_2F_1(1,1-a;r+1; \tfrac{x}{b}) }{br{(x-\beta)}^{r+a-1}}
+        & = C \frac{x^r \cdot {}_2F_1(1,1-a;r+1; \tfrac{x}{b}) }{br{(x-\beta)}^{r+a-1}}
     \end{array} \]
+    Honestly, I tried many things to make a direct proof of the polynomial behavior of the tails. However, I couldn't find any literature on this topic. The argument I'm trying to make is that while $f(n) \sim K n^{1-\alpha}$, the tail should behave like a higher degree polynomial, and thus,
+    \[ \lim_n \frac{f(n)}{\ol{F}(n)} = 0.\]
+    This argument could make sense in the case where $r = \beta = \alpha = 1$, because 
+    \[ f(k) \sim \binom{k}{k} \frac{B(2,k+1)}{B(1,1)} = \frac{1}{(k+1)(k+2)} = \text{Cau}(k+1)\]
+    \[ \ol{F(k)} \sim \]
 \end{enumerate}
