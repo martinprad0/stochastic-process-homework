@@ -6,7 +6,7 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage[round]{natbib}
 \usepackage{bookmark, amsfonts, amsthm, amsmath, amssymb, cancel, wrapfig, mathrsfs, enumitem}
-\usepackage{tikz, circuitikz, subfig, graphicx, float}
+\usepackage{tikz, circuitikz, subfig, subcaption, graphicx, float}
 \bibliographystyle{plainnat}
 
 
@@ -17,6 +17,15 @@
 % \counterwithin{equation}{subsection}
 % \newcommand\inlinetag{\stepcounter{equation}\ (\theequation)}
 
+%%--AUTOMATION----------------------------------------------------
+\usepackage{l3sys-shell}
+\ExplSyntaxOn%
+\NewDocumentCommand\inputfiles{ m }
+    {
+    \sys_shell_split_ls:nN {#1} \l_tmpa_seq
+    \seq_map_inline:Nn \l_tmpa_seq { \input {##1} }
+    }
+\ExplSyntaxOff%
 
 %%--MATH---------------------------------------------------------
 % Custom Letters
@@ -38,6 +47,7 @@
 \def\Var{\ensuremath{\mathbf{Var}}\:}
 \def\Bi{\ensuremath{\mathrm{Bi}}}
 \def\Be{\ensuremath{\mathrm{Be}}}
+\def\ol{\ensuremath{\overline}}
 
 % Theorems and more
 \theoremstyle{definition}
@@ -59,7 +69,7 @@
 \makeatother
 
 % Title Info
-\title{Stochastic Processes: Homework 0}
+\title{Stochastic Processes: Homework 1}
 \author{Martín Prado}
 \date{November 2023}
 \publishers{Universidad de los Andes $-$ Bogotá Colombia}
@@ -71,11 +81,7 @@
 
 % \tableofcontents
 
-\input{../exercises/ex1}
-
-\input{../exercises/ex2}
-
-\input{../exercises/ex3}
+\inputfiles{../exercises/*}
 
 % \bibliography{refs}
 

@@ -17,6 +17,15 @@
 % \counterwithin{equation}{subsection}
 % \newcommand\inlinetag{\stepcounter{equation}\ (\theequation)}
 
+%%--AUTOMATION----------------------------------------------------
+\usepackage{l3sys-shell}
+\ExplSyntaxOn%
+\NewDocumentCommand\inputfiles{ m }
+    {
+    \sys_shell_split_ls:nN {#1} \l_tmpa_seq
+    \seq_map_inline:Nn \l_tmpa_seq { \input {##1} }
+    }
+\ExplSyntaxOff%
 
 %%--MATH---------------------------------------------------------
 % Custom Letters
@@ -72,13 +81,7 @@
 
 % \tableofcontents
 
-\input{../exercises/ex1}
-
-\input{../exercises/ex2}
-
-\input{../exercises/ex3}
-
-\input{../exercises/ex4}
+\inputfiles{../exercises/*}
 
 % \bibliography{refs}
 
