@@ -2,10 +2,10 @@
 
 
 %%--PACKAGES-----------------------------------------------------
-\usepackage[colorlinks=true,linkcolor=blue,urlcolor=black,bookmarksopen=true]{hyperref} % hyperlinks
-\usepackage[a4paper, total={6in, 11in}]{geometry} % margins
 \usepackage[dvipsnames]{xcolor} % color
-\usepackage{bookmark, amsfonts, amsthm, amsmath, amssymb, cancel, mathrsfs, enumitem, advdate} % quality of life packages.
+\usepackage[colorlinks=true, allbordercolors={0 0 0}, pdfborderstyle={/S/U/W 1}, linkcolor=blue,urlcolor=blue,bookmarksopen=true, urlbordercolor=cyan]{hyperref}  % hyperlinks
+\usepackage[a4paper, total={6in, 9in}]{geometry} % margins
+\usepackage{bookmark, breakurl, amsfonts, amsthm, amsmath, amssymb, cancel, mathrsfs, enumitem, advdate} % quality of life packages.
 \usepackage{tikz, subfig, subcaption, graphicx, float, wrapfig, multicol} % tikz, graphics and positioning.
 \usetikzlibrary{shapes,arrows,positioning,calc}
 \bibliographystyle{plainnat}
@@ -48,7 +48,6 @@
 \def\Var{\ensuremath{\mathbf{Var}}\:}
 \def\Bi{\ensuremath{\mathrm{Bi}}}
 \def\Be{\ensuremath{\mathrm{Be}}}
-\def\ol{\ensuremath{\overline}}
 
 % Theorems and more
 \theoremstyle{definition}
@@ -62,6 +61,8 @@
 \newcommand{\angles}[1]{\ensuremath{\left\langle}#1\ensuremath{\right\rangle} }
 \newcommand{\floor}[1]{\ensuremath{\left\lfloor}#1\ensuremath{\right\rfloor} }
 \newcommand{\ceil}[1]{\ensuremath{\left\lceil}#1\ensuremath{\right\rceil} }
+\def\ol{\ensuremath{\overline}}
+\def\ul{\ensuremath{\underline}}
 
 % Section Numbering Fixes
 \makeatletter
