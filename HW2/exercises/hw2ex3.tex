@@ -1,10 +1,12 @@
+% chktex-file 9
+% chktex-file 17
 \section{Exercise 3}
 
-Let $(X_i)_{i\in\N}$ be a sequence of i.i.d.~random variables with $X_1 \sim \mu$,
+Let ${(X_i)}_{i\in\N}$ be a sequence of i.i.d.~random variables with $X_1 \sim \mu$,
 \[ M_n := \max\left\{ X_1,\ldots, X_n \right\},\hspace*{1em} \mbox{and} \hspace*{1em} N_n := \min\left\{ X_1,\ldots,X_n \right\}. \]
 \begin{enumerate}
     \item For $\mu = \mbox{Gamma}(\alpha,\beta),\; \alpha,\beta > 0$, \textbf{determine and justify} the extreme distribution of $(M_n)$ and $(N_n)$.
-    \item For $\mu = \mbox{Beta}(\alpha,\beta),\; \alpha,\beta > 0$, that is $f(x) = C_{\alpha,\beta}x^{\alpha-1}(1-x)^{\beta -1},\; \alpha,\beta > 0$, \textbf{determine and justify} the extreme distribution of $(M_n)$ and $(N_n)$.
+    \item For $\mu = \mbox{Beta}(\alpha,\beta),\; \alpha,\beta > 0$, that is $f(x) = C_{\alpha,\beta}x^{\alpha-1}{(1-x)}^{\beta -1},\; \alpha,\beta > 0$, \textbf{determine and justify} the extreme distribution of $(M_n)$ and $(N_n)$.
     \item For $\mu$ such that for $\alpha > 0$,
     \[ F(x) = \begin{cases}
     0, & \mbox{for }x< 1,\\
@@ -12,3 +14,74 @@ Let $(X_i)_{i\in\N}$ be a sequence of i.i.d.~random variables with $X_1 \sim \mu
     \end{cases} \]
     \textbf{determine and justify} the extreme distribution of $(M_n)$ and $(N_n)$
 \end{enumerate}
+
+\subsection*{Solution Part 1}
+
+The gamma distribution with parameters $\alpha, \beta > 0$ has the following density function:
+\[ f(x) = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha - 1} e^{-\beta x^2}, \; x \in [0,\infty). \] % chktex 9
+
+It's clear that the Gamma distribution has extreme distribution convergence since it's absolutely continuous. The extreme distribution cannot be Weibull because the population maximum $x_F = \infty$. Now, we are going to prove that the tails are not regular, and thus, the extremes do not converge to Fréchet (using L'Hôpital rule):
+
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rl}
+    \lim_{x\to\infty} \frac{\ol{F}(\lambda \cdot x)}{\ol{F}(x)} & = \lim_{x\to\infty} \frac{\lambda \cdot f(\lambda x)}{f(x)}\\
+    & = \lim_{x\to\infty} \frac{\lambda^{\alpha} x^{\alpha -1 } e^{-\beta \lambda^2 x^2}}{x^{\alpha - 1} e^{-\beta x^2}}\\
+    & = \lim_{x\to\infty} \lambda^{\alpha} \exp\left( -\beta x^2 (1-\lambda^2)  \right)\\
+    & = 0,\; \forall \lambda > 0.
+\end{array} \]
+
+Therefore, the only option left for $M_n$ is to be in the Gumbell's domain of attraction.
+
+Now, for $N_n$, we are going to use the von Mises condition to prove that it is in the domain of attraction of the Weibull distribution. In the first place, note that the population minimum $x_F$ equals $0$ and we are approaching to it from the right. Thus, after reflecting the whole distribution over the $y$ axis, we obtain
+
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2}
+\begin{array}{rl}
+    f'(x) & = (\alpha-1)x^{\alpha-2} e^{-\beta x^2} - x^{\alpha-1} \cdot 2\beta x e^{-\beta x^2}\\
+    & = x^{\alpha-2} e^{-\beta x^2}((\alpha-1)-2\beta x^2)
+\end{array} \]
+
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rl}
+    \lim_{x\to 0^-} \frac{x f(x)}{F(x)}& = \lim_{x\to 0^-} \frac{xf'(x) + f(x)}{f(x)}\\
+    & = \lim_{x\to 0^-} \frac{x^{\alpha-1} e^{-\beta x^2}((\alpha-1)-2\beta x^2)}{x^{\alpha-1} e^{-\beta x^2}} + \frac{f(x)}{f(x)}\\
+    & = \lim_{x\to 0^-} (\alpha - 1) - 2\beta x^2 +1 = \alpha.
+\end{array} \]
+
+Thus, $c_n N_n + d_n$ converges to a Weibull distribution with parameter $\alpha$.
+
+\subsection*{Solution Part 2}
+
+Both $M_n$ and $N_n$ will be in the domain of attraction of Weibull. For $M_n$ the von Mises condition is satisfied on the following limit:
+
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rl}
+    f'(x) & = (\alpha-1) x^{\alpha-2}{(1-x)}^{\beta-1} - (\beta -1) x^{\alpha-1}{(1-x)}^{\beta-2}\\
+    & = x^{\alpha-2}{(1-x)}^{\beta-2}((\alpha-1)(1-x)-(\beta-1)x)
+\end{array}\]
+
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rl}
+    \lim_{x\to 1^+} \frac{(1-x)f(x)}{\ol{F}(x)} & = \lim_{x\to 1^+} \frac{(1-x)f'(x)- f(x)}{-f(x)}\\
+    & = \lim_{x\to 1^+} \frac{(1-x) \cdot x^{\alpha-2}{(1-x)}^{\beta-2}((\alpha-1)(1-x)-(\beta-1)x)}{-x^{\alpha - 1}{(1-x)}^{\beta-1}} + 1\\
+    & = \lim_{x\to 1^+} -(\alpha-1)\underbrace{\frac{1-x}{x}}_{\to 0}+(\beta-1) + 1\\
+    & = \beta - 1 + 1 = \beta.
+\end{array} \]
+Now, for $N_n$, after reflecting the whole distribution, we obtain:
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rl}
+    \lim_{x\to 0^-} \frac{x f(x)}{F(x)}& = \lim_{x\to 0^-} \frac{xf'(x) + f(x)}{f(x)}\\
+    & = \lim_{x\to 0^-} \frac{x \cdot x^{\alpha-2}{(1-x)}^{\beta-2}((\alpha-1)(1-x)-(\beta-1)x)}{x^{\alpha - 1}{(1-x)}^{\beta-1}} + 1\\
+    & = \lim_{x\to 0^-} (\alpha - 1) - (\beta -1)\underbrace{\frac{x}{1-x}}_{\to 0} + 1\\
+    & = \alpha - 1 + 1 = \alpha.
+\end{array} \]
+
+For $M_n$ is Weibull with parameter $\beta$ and for $N_n$ is Weibull with parameter $\alpha$.
+
+\subsection*{Solution Part 3}
+
