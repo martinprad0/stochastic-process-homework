@@ -31,9 +31,9 @@ It's clear that the Gamma distribution has extreme distribution convergence sinc
     & = 0,\; \forall \lambda > 0.
 \end{array} \]
 
-Therefore, the only option left for $M_n$ is to be in the Gumbell's domain of attraction.
+Therefore, the only option left for $M_n$ is to be in the Gumbell's domain of attraction, that is $F \in DAM(\Lambda)$.
 
-Now, for $N_n$, we are going to use the von Mises condition to prove that it is in the domain of attraction of the Weibull distribution. In the first place, note that the population minimum $x_F$ equals $0$ and we are approaching to it from the right. Thus, after reflecting the whole distribution over the $y$ axis, we obtain
+Now, for $N_n$, we are going to use the von Mises condition to prove that $F$ is in the domain of attraction of the Weibull distribution. In the first place, note that the population minimum $x_F$ equals $0$ and we are approaching it from the right. Thus, after reflecting the whole distribution over the $y$ axis, we obtain
 
 \[ \everymath{\displaystyle}
 \arraycolsep=1.8pt\def\arraystretch{2}
@@ -50,7 +50,7 @@ Now, for $N_n$, we are going to use the von Mises condition to prove that it is 
     & = \lim_{x\to 0^-} (\alpha - 1) - 2\beta x^2 +1 = \alpha.
 \end{array} \]
 
-Thus, $c_n N_n + d_n$ converges to a Weibull distribution with parameter $\alpha$.
+Thus, $\ol{F}(-\cdot) \in DAM(\Psi_\alpha)$.
 
 \subsection*{Solution Part 2}
 
@@ -82,6 +82,55 @@ Now, for $N_n$, after reflecting the whole distribution, we obtain:
 \end{array} \]
 
 For $M_n$ is Weibull with parameter $\beta$ and for $N_n$ is Weibull with parameter $\alpha$.
+\[ F \in DAM(\Psi_\beta),\hspace*{1em} \ol{F}(-\cdot) \in DAM(\Psi_\alpha). \]
 
 \subsection*{Solution Part 3}
+
+The provided distribution function cannot be a distribution function since is not monotonically increasing, as in fact, it goes to 0 when $x \to \infty$. I'm going to assume that it's the density function, but even then, we would encounter some problems. After some tinkering, I believe the correct density and distribution functions should be
+\[ f(x) = \alpha^2 \frac{\ln(x)}{x^{\alpha+1}} \1_{[1,\infty)}(x), \]
+
+\[ F(x) = 1- \frac{\alpha\ln(x) + 1}{x^{\alpha}}\1_{[1,\infty)}(x). \]
+
+For $M_n$ we are using the von Mises condition to prove it is in the domain of attraction of Fréchet:
+
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rl}
+    \lim_{x\to\infty} \frac{xf(x)}{\ol{F}(x)}  
+    & = \lim_{x\to\infty} \alpha^2\frac{\ln(x)}{x^{\alpha}} \cdot \frac{x^{\alpha}}{\alpha\ln(x) + 1}\\
+    & = \lim_{x\to\infty} \frac{\alpha^2 \ln(x)}{\alpha\ln(x)+1}\\ (\text{L'Hôpital})
+    & = \lim_{x\to\infty} \frac{\alpha^2 x^{-1}}{\alpha x^{-1}}\\
+    & = \alpha > 0.
+\end{array}\]
+
+Thus, $F \in DAM(\Phi_\alpha)$. Now, for $N_n$ we are going to use the von Mises condition for the Weibull domain of attraction. After re-centering and reflecting over the $y$ axis we obtain,
+
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rl}
+    \lim_{x\to 1-} \frac{(x-1)f(x)}{F(x)} 
+    & = \lim_{x\to 1-} \frac{\alpha^2 (x-1)\ln(x)}{x^{\alpha+1}} \cdot \frac{x^{\alpha}}{x^{\alpha} - \alpha \ln(x) + 1}\\
+    & = \lim_{x\to 1-} \frac{1}{x} \cdot \frac{\alpha^2 \ln(x)x -\ln(x)}{x^\alpha-\alpha\ln(x) - 1}\\
+    & = \frac{1}{1} \cdot \frac{0}{1-1}.
+\end{array} \]
+
+After applying L'Hôpital rule,
+
+\[ f'(x) = \frac{\alpha^2 (1 - (a+1)\ln(x))}{x^{\alpha+2}} \]
+
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rl}
+    \lim_{x\to 1-} \frac{(x-1)f(x)}{F(x)} 
+    & = \lim_{x\to 1-} \frac{(x-1)f'(x) + f(x)}{f(x)}\\
+    & = \lim_{x\to 1-} \frac{(x-1)\alpha^2 (1 - (a+1)\ln(x))}{x^{\alpha+2}} \cdot  \frac{x^{\alpha+1}}{\alpha^2\ln(x)} + 1\\
+    & = \lim_{x\to 1-} \frac{x-1}{x} \cdot \frac{1-(\alpha + 1)\ln(x)}{\ln(x)} + 1\\
+    & = \lim_{x\to 1-} \frac{(x-1)}{x\ln(x)} - (\alpha + 1)\frac{(x-1)\ln(x)}{x \ln(x)} + 1\\ \text{(L'Hôpital)}
+    & = \lim_{x\to 1-} \frac{1}{\ln(x) + 1} - (\alpha + 1)\frac{1+\ln(x)-x^{-1}}{\ln(x)+1} + 1\\
+    & = \frac{1}{0+1} - (\alpha+1) \frac{1+0-1}{0+1} + 1\\
+    & = 2.
+\end{array} \]
+
+In the end we obtained that $N_n$ is in the domain of attraction of the Weibull, that is $\ol{F}(-\cdot)\in DAM(\Psi_2)$
+
 

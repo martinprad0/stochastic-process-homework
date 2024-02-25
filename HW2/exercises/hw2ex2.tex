@@ -1,3 +1,5 @@
+% chktex-file 9
+% chktex-file 17
 \section{Exercise 2}
 
 \begin{enumerate}
@@ -7,8 +9,60 @@
     \item In the case that it has a limit distribution, \textbf{argue} about which should be the limit distribution.
 \end{enumerate}
 
+\subsection*{Solution Part 1}
+
+The criterion states that for every distribution $F$ that satisfies the following condition:
+
+\[ \lim_{x\to x_F-} \frac{\ol{F}(x)}{\ol{F}(x-)} = 1, \]
+
+then, there exist sequences $d_n$ and $c_n$ such that, for the extreme $M_n = X_{n:n}$,
+\[ \frac{M_n - d_n}{c_n} \overset{d}{\to} H, \]
+for a non-degenerate distribution $H$. Furthermore, for the discrete case, the condition would be that
+\[ \lim_{n\to \infty} \frac{\ol{F}(n)}{\ol{F}(n-1)} = 1, \]
+which is equivalent to
+\[ \lim_{n\to\infty} \frac{f(n)}{\ol{F}(n)} = 0. \]
 
 \subsection*{Solution Part 2}
 
 \[ \ol{F}(n) = \frac{C}{{(n+1)}^{\ln(n+1)}}. \]
+
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rl}
+    \ln \left( \lim_{n\to\infty} \frac{\ol{F}(n)}{\ol{F}(n-1)}  \right) & = \lim_{n\to\infty} \left( \ln \ol{F}(n) - \ln \ol{F}(n-1)\right)\\
+    & = \lim_{x\to\infty} \ln^2(x+1) - \ln^{2}(x)\\
+    & = \lim_{x\to\infty} (\ln(x+1) + \ln(x)) \cdot (\ln(x+1) - \ln(x))\\
+    & = \lim_{x\to\infty} \frac{\ln\frac{x+1}{x}}{\ln^{-1}(x^2 + x)}\\ \text{(L'Hôpital)}
+    & = \lim_{x\to\infty} \frac{-{(x^2 + x)}^{-1}}{-(2x+1){(x^2 + x)}^{-1} \ln^{-2}(x^2+x)}\\
+    & = \lim_{x\to\infty} \frac{\ln^{2}(x^2+x)}{2x+1}\\ \text{(L'Hôpital)}
+    & = \lim_{x\to\infty} \frac{(2x+1){(x^2+x)}^{-1}}{2}\\
+    & = \lim_{x\to\infty} \frac{2x+1}{2(x^2+x)} = 0.
+\end{array} \]
+
+This implies that
+
+\[ \lim_{n\to\infty} \frac{\ol{F}(n)}{\ol{F}(n-1)} = \exp\left[ \ln \left( \lim_{n\to\infty} \frac{\ol{F}(n)}{\ol{F}(n-1)}  \right) \right] = e^0 = 1.   \]
+
+
+\subsection*{Solution Part 3}
+
+It's clear that $F$ is not in the domain of attraction of the Weibull since its extreme isn't bounded. In order to see it cannot be either Fréchet, let's take a look to the continuous case,
+\[ \ol{G}(x) = \frac{C}{{x}^{\ln(x)}} \cdot \1_{[1,\infty)}(x) = e^{\ln^2(x)} \1_{[1,\infty)}(x) \]
+
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rl}
+    \ln\left( \lim_{x\to\infty} \frac{\ol{G}(\lambda \cdot x)}{\ol{G}(x)} \right)
+    & = \lim_{x\to\infty} \ln^2(\lambda x) - \ln^2(x)\\
+    & = \lim_{x\to\infty} (\ln(\lambda x) + \ln(x)) \cdot (\ln(\lambda x) - \ln(x))\\
+    & = \lim_{x\to\infty} \ln(\lambda x^2) \ln(\lambda)\\
+    & = \infty.
+\end{array} \]
+
+Thus, it's clear that $G \in DAM(\Lambda)$ since it's not regular. Finally, note that since $F(n) = G(\ceil{x})$ for $x \in (n-1,n]$, it follows that $F$ and $G$ have equivalent tails, and thus, $F$ inherits the same domain of attraction that $G$ has.
+
+
+
+
+
 
