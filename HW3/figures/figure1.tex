@@ -1,0 +1,60 @@
+\tikzset{>=Stealth}
+\def\edgebending{1cm}
+\def\loopsize{0.5cm}
+\definecolor{edgecolor}{RGB}{57, 0, 19}
+\begin{tikzpicture}[scale=1,
+    vertex/.style={fill = purple, circle, text = white, font=\bfseries},
+    arc/.style={draw,ultra thick,->, shorten >=0.05cm, bend right = \edgebending, edgecolor},
+    loop/.style={->, shorten > = 0.1cm, ultra thick, edgecolor}
+    ]
+
+    \newcommand{\coords}{
+        (-0.189, 0.982),
+        (-4.261, 1.616),
+        (5.021, 1.616),
+        (2.102, -1.743),
+        (-2.673, -2.471)
+    }
+
+    \newcommand{\adjmatrix}{
+        {0.0, 0.2, 0.0, 0.8, 0.0},
+        {0.4, 0.0, 0.0, 0.0, 0.6},
+        {0.3, 0.0, 0.7, 0.0, 0.0},
+        {0.4, 0.0, 0.6, 0.0, 0.0},
+        {0.4, 0.0, 0.0, 0.6, 0.0},
+    }
+
+
+    % Define vertices
+    \foreach [count = \i] \pos in \coords {
+        \pgfmathsetmacro{\nodeangle}{round(90-atan2(\pos))}
+        \ifnum\i=1
+            \xdef\anglelist{\nodeangle}
+        \else
+            \xdef\anglelist{\anglelist,\nodeangle}
+        \fi
+        \coordinate[at=\pos, name=p\i];
+        \pgfmathsetmacro{\nodename}{int(\i-1)}
+        \node[vertex, at=\pos, name=V\i]{\nodename};
+    }
+        
+    % Define edges
+    \foreach [count = \i] \row in \adjmatrix{
+    \foreach [count = \j] \weight in \row{
+        % Weight > 0
+        \pgfmathsetmacro{\edgeexists}{\weight > 0 ? 1 : 0}
+        \ifnum\edgeexists>0
+            \pgfmathsetmacro{\isloop}{\i-\j == 0 ? 1 : 0}
+            \ifnum\isloop>0
+                \pgfmathsetmacro{\nodeangle}{{\anglelist}[\i-1]}
+                \pgfmathsetmacro{\outangle}{int(\nodeangle - 50)}
+                \pgfmathsetmacro{\inangle}{int(\nodeangle + 50)}
+                \draw[loop] (V\i) to [in=\outangle,out=\inangle,looseness=\loopsize] node[fill=white] {\weight} (V\i);
+            \else
+                \draw[arc] (V\i) to node[fill=white, inner sep=1pt] {\weight} (V\j);
+            \fi            
+        \fi
+    }
+    }
+
+\end{tikzpicture}

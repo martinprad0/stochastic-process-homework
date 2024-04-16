@@ -1,0 +1,88 @@
+% chktex-file 9
+% chktex-file 17
+\section{Exercise 2}
+
+\[ \Pi = \frac{1}{10}\cdot \left[
+\begin{array}{ccccc}
+    0 & 2 & 0 & 8 & 0\\
+    4 & 0 & 0 & 0 & 6\\
+    3 & 0 & 7 & 0 & 0\\
+    4 & 0 & 6 & 0 & 0\\
+    4 & 0 & 0 & 6 & 0
+\end{array}
+\right] \]
+
+\subsection*{Part (a)}
+\vspace*{-5em}
+\begin{figure}[H]
+    \centering
+    \input{../figures/figure1}
+\end{figure}
+
+
+\subsection*{Part (b)}
+
+Let $\Theta \sim \hbox{UNI}[0,1]$, the function $f$ for the dynamical system that is defined by the previous transition matrix is:
+
+\[ f(0,\Theta) = 1\cdot \1_{[0,2)}(10\Theta) + 3\cdot\1_{[2,10]}(10\Theta) , \]
+\[ f(1,\Theta) = 0\cdot \1_{[0,4)}(10\Theta) + 4\cdot\1_{[4,10]}(10\Theta) , \]
+\[ f(2,\Theta) = 0\cdot \1_{[0,3)}(10\Theta) + 2\cdot\1_{[3,10]}(10\Theta) , \]
+\[ f(3,\Theta) = 0\cdot \1_{[0,4)}(10\Theta) + 2\cdot\1_{[4,10]}(10\Theta) , \]
+\[ f(4,\Theta) = 0\cdot \1_{[0,4)}(10\Theta) + 3\cdot\1_{[4,10]}(10\Theta) . \]
+
+\subsection*{Part (c)}
+
+Now, with the formula
+\[ \E\left[ T_4 \;|\; X_0 = i \right] = x_i = 1 + \sum_{j\neq i} \Pi_{i,j}x_j, \]
+we get the following linear system for the expected value of the time of the first return to 4,
+\[ \begin{array}{rcl}
+        10 x_0 & = & 10 + 2 x_1 + 8 x_3\\
+        10 x_1 & = & 10 + 4 x_0 + 6 x_4\\
+        10 x_2 & = & 10 + 3 x_0 + 7 x_2\\
+        10 x_3 & = & 10 + 4 x_0 + 6 x_2\\
+        10 x_4 & = & 0.
+\end{array} \]
+
+The equivalent system to solve is
+
+\[ \left[ \begin{array}{ccccc}
+    10 & -2 & 0 & -8 & 0\\
+    -4 & 10 & 0 & 0 & -6\\
+    -3 & 0 & 10 & 0 & 0\\
+    -4 & 0 & -6 & 10 & 0\\
+    0 & 0 & 0 & 0 & 10
+\end{array} \right] 
+\left[ \begin{array}{c}
+    x_0\\
+    x_1\\
+    x_2\\
+    x_3\\
+    x_4
+\end{array} \right]
+= 
+\left[ \begin{array}{c}
+    10\\
+    10\\
+    10\\
+    10\\
+    0
+\end{array} \right].
+\]
+
+Then,
+
+\[ \left[ \begin{array}{c}
+    x_0\\
+    x_1\\
+    x_2\\
+    x_3\\
+    x_4
+\end{array} \right]
+= 
+\left[ \begin{array}{c}
+    5.44\\
+    3.18\\
+    2.63\\
+    4.75\\
+    0\\
+\end{array} \right] \]
