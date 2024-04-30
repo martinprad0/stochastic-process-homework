@@ -1,0 +1,61 @@
+\section{Exercise 3}
+
+\subsection*{Part (a)}
+
+For the average absorption time we have the following linear system
+\[ \left\{\begin{array}{ccl}
+    h_A(k) - \sum_{k = 0}^{N^2} \Pi_{k,l} \cdot h_A(l)  & = 1, & \mbox{For }k \not\in A\\
+    h_A(k) & = 0, & \mbox{For }k \in A.\\
+\end{array}\right. \]
+which can be expressed as
+\[ B\cdot h_M = b_M \]
+where, $b_M$ is defined as
+\[ b_M(k) = \begin{cases}
+    1 & k \not\in M\\
+    0 & k\in M
+\end{cases}, \]
+and the rows of $B$ as
+\[ B_k = \begin{cases}
+    I_k - \Pi_k & k \not\in M\\
+    I_k & k \in M.
+\end{cases} \]
+
+\subsection*{Part (b)}
+
+\begin{itemize}
+    \item $M = \{D,E\}$
+    \[ 
+        h_M = \left[\begin{matrix}
+            \frac{\alpha \beta + \alpha \gamma + \alpha \varepsilon - 2 \alpha + \beta \gamma - 2 \beta - 2 \gamma - \varepsilon + 3}{\left(\alpha - 1\right) \left(\beta \delta + \delta \varepsilon - \delta + \gamma \varepsilon - \varepsilon\right)}\\
+            \frac{\alpha \beta + \alpha \gamma + \alpha \varepsilon - 2 \alpha + \beta \delta + \beta \gamma - 2 \beta + \delta \varepsilon - \delta + \gamma \varepsilon - 2 \gamma - 2 \varepsilon + 3}{\left(\alpha - 1\right) \left(\beta \delta + \delta \varepsilon - \delta + \gamma \varepsilon - \varepsilon\right)}\\
+            \frac{\alpha \beta + \alpha \delta + \alpha \gamma - 2 \alpha + \beta \delta + \beta \gamma - 2 \beta - 2 \delta - 2 \gamma + 3}{\left(\alpha - 1\right) \left(\beta \delta + \delta \varepsilon - \delta + \gamma \varepsilon - \varepsilon\right)}\\
+            0\\
+            0
+        \end{matrix}\right]
+    \]
+    \item $M = \{C,D,E\}$
+    \[ h_M = \left[\begin{matrix}- \frac{\alpha + \beta - 2}{\left(\alpha - 1\right) \left(\beta - 1\right)}\\- \frac{1}{\beta - 1}\\0\\0\\0\end{matrix}\right]
+    \]
+    \item $M = \{B,D,E\}$
+    \[ h_M = \left[\begin{matrix}- \frac{1}{\alpha - 1}\\0\\- \frac{\alpha + \delta + \gamma - 2}{\left(\alpha - 1\right) \left(\gamma - 1\right)}\\0\\0\end{matrix}\right]
+    \]
+    \item $M = \{B,C,D,E\}$
+    \[ h_M = \left[\begin{matrix}- \frac{1}{\alpha - 1}\\0\\0\\0\\0\end{matrix}\right]
+    \]
+    \item $M = \{A,D,E\}$
+    \[ h_M = \left[\begin{matrix}0\\- \frac{\beta + \gamma + \varepsilon - 2}{\left(\beta - 1\right) \left(\gamma - 1\right)}\\- \frac{1}{\gamma - 1}\\0\\0\end{matrix}\right]
+    \]
+    \item $M = \{A,C,D,E\}$
+    \[ h_M = \left[\begin{matrix}0\\- \frac{1}{\beta - 1}\\0\\0\\0\end{matrix}\right]
+    \]
+    \item $M = \{A,B,D,E\}$
+    \[ h_M = \left[\begin{matrix}0\\0\\- \frac{1}{\gamma - 1}\\0\\0\end{matrix}\right]
+    \]
+    \item $M = \{A,B,C,D,E\}$
+    \[ h_M = \left[\begin{matrix}0\\0\\0\\0\\0\end{matrix}\right]
+    \]
+\end{itemize}
+
+\subsection*{Part (c)}
+
+If $\alpha = \beta = \gamma = 0$, then $M = \{D,E\}$. In the first place, note that this would imply that the probability of going from $A$ to $B$ is 1, and thus, $h_M(A) = h_M(B)+1$. On the other hand, the fact that we cannot repeat the same state on the walk and we tend to go more often to other states implies that the average time should decrease.

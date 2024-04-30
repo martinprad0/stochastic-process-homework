@@ -2,16 +2,16 @@
 
 
 %%--PACKAGES-----------------------------------------------------
-\usepackage[colorlinks=true,linkcolor=blue,urlcolor=black,bookmarksopen=true]{hyperref} % hyperlinks
-\usepackage[a4paper, total={6in, 9in}]{geometry} % margins
 \usepackage[dvipsnames]{xcolor} % color
-\usepackage{bookmark, amsfonts, amsthm, amsmath, amssymb, cancel, mathrsfs, enumitem, advdate} % quality of life packages.
-\usepackage{tikz, subfig, subcaption, graphicx, float, wrapfig, multicol, ifthen, verbatim} % tikz, graphics and positioning.
-\usetikzlibrary{shapes,arrows,positioning,calc,fit, external, arrows.meta}
+\usepackage[colorlinks=true, allbordercolors={0 0 0}, pdfborderstyle={/S/U/W 1}, linkcolor=blue,urlcolor=blue,bookmarksopen=true, urlbordercolor=cyan]{hyperref}  % hyperlinks
+\usepackage[a4paper, total={6in, 9in}]{geometry} % margins
+\usepackage{bookmark, breakurl, amsfonts, amsthm, amsmath, amssymb, cancel, mathrsfs, enumitem, advdate} % quality of life packages.
+\usepackage{tikz, subfig, subcaption, graphicx, float, wrapfig, multicol} % tikz, graphics and positioning.
+\usetikzlibrary{shapes,arrows,positioning,calc}
 \bibliographystyle{plainnat}
 
 
-%%--CORRECTIONS-------------------------------------------------- 
+%%--CORRECTIONS--------------------------------------------------
 % \usepackage[switch, displaymath, mathlines]{lineno}
 % \usepackage[allfiguresdraft]{draftfigure} % Disable pictures for fast rendering
 % \linenumbers{}
@@ -71,7 +71,7 @@
 \makeatother
 
 % Title Info
-\title{Stochastic Processes: Homework 3}
+\title{Stochastic Processes: Homework 5}
 \author{Martín Prado}
 \date{\AdvanceDate[0]\today} % For cheating deadlines change 0 to -1
 \publishers{Universidad de los Andes $-$ Bogotá Colombia}
@@ -80,6 +80,7 @@
 %%--DOCUMENT-----------------------------------------------------
 \begin{document}
 \maketitle
+
 % \tableofcontents
 
 \inputfiles{../exercises/*}

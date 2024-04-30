@@ -1,0 +1,65 @@
+% chktex-file 9 chktex-file 17
+\section{Exercise 1}
+Consider the following transition matrix
+\[ \Pi = \left(\begin{matrix}0 & \frac{1}{3} & 0 & 0 & \frac{2}{3}\\\frac{2}{3} & 0 & \frac{1}{3} & 0 & 0\\0 & \frac{2}{3} & 0 & \frac{1}{3} & 0\\0 & 0 & \frac{2}{3} & 0 & \frac{1}{3}\\\frac{1}{3} & 0 & 0 & \frac{2}{3} & 0\end{matrix}\right) \]
+
+\begin{enumerate}
+    \item[(a)] Build the random dynamical system that parametrizes this Markov Chain.
+    \item[(b)] Why does a unique invariant distribution exist?
+    \item[(c)] Calculate the invariant distribution $\pi$ and verify it is reversible.
+    \item[(d)] Verify that it is strongly irreducible. Which is the exponent $m$?
+    \item[(e)] The random walk on $\Z$ with independent increments $\frac{2}{3}\delta_{-1} + \frac{1}{3} \delta_{1}$ is not strongly irreducible. Explain the difference between this case and the case of $\Pi$
+    \item[(f)] Determine the time $\E[T_{i}^{r}]$ for $i = 0,\ldots, 4$.
+    \item[(g)] Calculate the convergence rate
+    \[ \mu \Pi^n \to \pi,\hspace*{2em} n \to \infty \]      
+\end{enumerate}
+
+\subsection*{Solution Part (a)}
+
+\[ f(i,\theta) = (i+1) \mbox{mod }5\cdot\1_{\left[0,\frac{1}{3}\right)}(\theta) + (i-1) \mbox{mod }5\cdot\1_{\left[\frac{1}{3}, 1\right]}(\theta). \]
+
+\subsection*{Solution Part (b)}
+
+The ergodic theorem for Markov Chains states that a strongly irreducible Markov chain has only one invariant distribution $\pi$. (See item (d))
+
+\subsection*{Solution Part (c)}
+
+We must find $\pi$ that satisfies 
+\[ \pi \Pi = \pi, \]
+\[ \sum_{i = 0}^4 \pi_i = 1 \]
+
+The symmetry of the graph that is spanned by this matrix hints that all the entries of $\pi$ must be equal to $\frac{1}{5}$. In fact, after calculating the left eigenvectors of $\Pi$ we find that the only one with eigenvalue 1 is 
+\[ \pi = \left[ \frac{1}{5},\; \frac{1}{5},\;\frac{1}{5},\;\frac{1}{5},\;\frac{1}{5} \right]. \]
+
+\subsection*{Solution Part (d)}
+
+\[ \arraycolsep=4pt\def\arraystretch{1.2}
+\Pi^2 = \left[\begin{matrix}\frac{4}{9} & 0 & \frac{1}{9} & \frac{4}{9} & 0\\0 & \frac{4}{9} & 0 & \frac{1}{9} & \frac{4}{9}\\\frac{4}{9} & 0 & \frac{4}{9} & 0 & \frac{1}{9}\\\frac{1}{9} & \frac{4}{9} & 0 & \frac{4}{9} & 0\\0 & \frac{1}{9} & \frac{4}{9} & 0 & \frac{4}{9}\end{matrix}\right],\]
+
+\[ \arraycolsep=4pt\def\arraystretch{1.2}
+\Pi^3 = \left[\begin{matrix}0 & \frac{2}{9} & \frac{8}{27} & \frac{1}{27} & \frac{4}{9}\\\frac{4}{9} & 0 & \frac{2}{9} & \frac{8}{27} & \frac{1}{27}\\\frac{1}{27} & \frac{4}{9} & 0 & \frac{2}{9} & \frac{8}{27}\\\frac{8}{27} & \frac{1}{27} & \frac{4}{9} & 0 & \frac{2}{9}\\\frac{2}{9} & \frac{8}{27} & \frac{1}{27} & \frac{4}{9} & 0\end{matrix}\right]\]
+
+\[ \arraycolsep=4pt\def\arraystretch{1.2}
+\Pi^4\left[\begin{matrix}\frac{8}{27} & \frac{16}{81} & \frac{8}{81} & \frac{32}{81} & \frac{1}{81}\\\frac{1}{81} & \frac{8}{27} & \frac{16}{81} & \frac{8}{81} & \frac{32}{81}\\\frac{32}{81} & \frac{1}{81} & \frac{8}{27} & \frac{16}{81} & \frac{8}{81}\\\frac{8}{81} & \frac{32}{81} & \frac{1}{81} & \frac{8}{27} & \frac{16}{81}\\\frac{16}{81} & \frac{8}{81} & \frac{32}{81} & \frac{1}{81} & \frac{8}{27}\end{matrix}\right]   \]
+
+The exponent is $m = 4$.
+
+\subsection*{Solution Part (e)}
+
+Let $S_n$ be the sum of $n$ increments of this random walk. Note that if $n$ is odd, then $S_n$ is too and viceversa. Therefore,
+\[ S_n \equiv n \mod 2, \]
+and thus, odd states are not accesible from even $n$'s and viceversa. On the other hand, since $2\Z_5 \simeq \Z_5$, one can access both even and odd states from odd $n$'s and viceversa. From the previous part is also easy to see that for $n = 4$ one can for any $i,j\in S$ from $i$ to $j$ in 4 steps with probability greater than 0.
+
+\subsection*{Solution Part (f)}
+
+Theorem 3.83 states that if $\pi$ is the only invariant distribution, then
+\[ \pi(i) = \frac{1}{\E[T_i^r]} \]
+Therefore, $\E[T_i^r] = 5$ for every $i\in S$.
+
+\subsection*{Solution Part (g)}
+Let $X_n^\mu$ be the random variable associated with $\mu\Pi^n$
+theorem 3.68 states that for
+\[ \alpha = \sum_{j\in S} \min_{i\in S} \Pi^m(i,j) = \frac{1}{81}+\frac{1}{81}+\frac{1}{81}+\frac{1}{81}+\frac{1}{81} = \frac{5}{81}, \]
+we have
+\[ \sup_{A\subset S} |P\{X_n^\mu \in A\} - \pi(A)| \leq {(1-\alpha)}^{\floor{\frac{n}{m}}} = {\left( \tfrac{76}{81} \right)}^{\floor{\frac{n}{4}}}. \]
+Thus, $X_n^\mu$ converges in distribution to $\pi$ at an exponential rate.
