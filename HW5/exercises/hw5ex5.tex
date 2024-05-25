@@ -1,0 +1,112 @@
+% chktex-file 44
+\section*{Exercise 5}
+
+Consider the inverse Ehrenfest model. Let $N$ be the total number of particles inside 2 compartments and $k$ be the number of particles in compartment 1. The probability that compartment 1 loses a particle is $\frac{N-k}{N}$ and the probability that it gains a particle is $\frac{k}{N}$ 
+
+\begin{enumerate}
+    \item[(a)] Model this system, show the transition matrix.
+    \item[(b)] Is it irreducible?
+    \item[(c)] Starting on a state $i\in \{1,\ldots, N-1\}$ write the linear system of the probabilities of absorption on the extremes. Calculate it for $N = 7$.
+    \item[(d)] For $N = 7$ calculate the absorption times on $\{0,7\}$  
+\end{enumerate}
+
+\subsection*{Solution (a)}
+
+The system is given by the following transition matrix
+
+\[ \Pi(i,j) = \begin{cases}
+    \frac{N-i}{N} & j = i-1\\
+    \frac{i}{N} & j = i+1\\
+    0 & \mbox{otherwise}
+\end{cases} \]
+
+Thus, for the system to make sense, $\Pi(0,0) = 1$ and $\Pi(N,N) = 1$. Making $0, N$ absorbing states.
+
+\subsection*{Solution (b)}
+
+It is not irreducible because we have 2 absorbing states.
+
+\subsection*{Solution (c)}
+In general, the system for the absorption probabilities is, for the set of absorbing states $A$,
+\[ \P\{Z_{T_A} = l | Z_0 = k\} = g_l(i) = \sum_{j\in\S} \Pi(i,j) g_l(j) \]
+which is the solution for $(I-\Pi)\cdot g_l = 0$, or equivalently the vectors in eigenspace associated with the eigenvalue 1. The multiplicity of the eigenvalue 1 is equal to $|A|$. To obtain the solution we're looking for, we must solve the following system.
+
+Let $m = |A|$ and $W = \text{span}\{v_1,\ldots, v_m\}$ be solution space for $I-\Pi$. Additionally, let $I_k$ be the $k$-th row of the Identity matrix. The solution $g_l \in W$ we are looking for, must satisfy the frontier conditions. For $k \in A$,
+\[ g_l(k) = \begin{cases}
+    1, & k = l\\
+    0, & k \neq l
+\end{cases} \]
+
+Which is equivalent to solving for $k_2,\ldots, k_m \in A\backslash\{l\}$
+\[ \left[ \begin{matrix}
+    I_l\\ \hline
+    I_{k_2}\\\hline
+    \vdots\\\hline
+    I_{k_m}
+\end{matrix} \right] \cdot g_l = {\left[ \begin{matrix}
+    1\\
+    0\\
+    \vdots\\
+    0
+\end{matrix} \right]}_{m\times 1} \]
+
+This way, we can find $x_1,\ldots, x_m$ such
+\[ g_l = x_1\cdot v_1 + \cdots + x_m v_m = \left[ \begin{array}{c|c|c}
+    v_1 & \cdots & v_m
+\end{array} \right] \cdot \left[ \begin{matrix}
+    x_1\\
+    \vdots\\
+    x_m
+\end{matrix} \right],\]
+and satisfy the frontier conditions. That is to solve $x_1,\ldots, x_m$ in the system
+
+\[ \left( \left[ \begin{matrix}
+    I_l\\ \hline
+    I_{k_2}\\\hline
+    \vdots\\\hline
+    I_{k_m}
+\end{matrix} \right] 
+\cdot
+\left[ \begin{array}{c|c|c}
+    v_1 & \cdots & v_m
+\end{array} \right]  \right)\cdot \left[ \begin{matrix}
+    x_1\\
+    \vdots\\
+    x_m
+\end{matrix} \right] = {\left[ \begin{matrix}
+    1\\ 
+    0\\
+    \vdots\\
+    0
+\end{matrix} \right]}_{m\times 1}  \]
+
+Returning to our case, for $N = 7$,
+\[ \Pi = \left[\begin{matrix}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\\frac{6}{7} & 0 & \frac{1}{7} & 0 & 0 & 0 & 0 & 0\\0 & \frac{5}{7} & 0 & \frac{2}{7} & 0 & 0 & 0 & 0\\0 & 0 & \frac{4}{7} & 0 & \frac{3}{7} & 0 & 0 & 0\\0 & 0 & 0 & \frac{3}{7} & 0 & \frac{4}{7} & 0 & 0\\0 & 0 & 0 & 0 & \frac{2}{7} & 0 & \frac{5}{7} & 0\\0 & 0 & 0 & 0 & 0 & \frac{1}{7} & 0 & \frac{6}{7}\\0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\end{matrix}\right] \]
+
+Also $A = \{i,\; P(i,i) = 1\} = \{0,7\}$. If we apply the previous algorithm we can conclude that
+\[ g_0 = \left[\begin{matrix}1.0\\0.984375\\0.890625\\0.65625\\0.34375\\0.109375\\0.015625\\0\end{matrix}\right],\hspace*{2em} g_N = \left[\begin{matrix}0\\0.015625\\0.109375\\0.34375\\0.65625\\0.890625\\0.984375\\1.0\end{matrix}\right] \]
+
+\subsection*{Solution (d)}
+
+Now, for the absorption times, let $h_A(k) = \E[T_A \;|\; X_0 = k]$. Then, we have the following linear system
+
+\[ h_A(k) = 1 + \sum_{j \in \S} \Pi(k,j)\cdot h_A(j),\hspace*{2em} k \in \S \backslash A \]
+\[ h_A(k) = 0,\hspace*{2em} k \in A \]
+
+Which is the solution of the following system
+\[ M \cdot h_A = b \]
+Where the $k$-th row of the matrix $M$ is
+\[ M_k = \begin{cases}
+    {(I-\Pi)}_k,& k\in \S \backslash A\\
+    I_k,& k\in A
+\end{cases} \]
+and,
+\[ b_k \begin{cases}
+    1,& k\in \S \backslash A\\
+    0,& k\in A
+\end{cases} \]
+
+This gives us the solution
+
+\[ h_A = \left[\begin{matrix}0\\1.5167\\3.6167\\5.3667\\5.3667\\3.6167\\1.5167\\0\end{matrix}\right]
+\]

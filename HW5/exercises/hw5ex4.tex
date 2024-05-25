@@ -1,0 +1,9 @@
+\section*{Exercise 4}
+
+Consider the system of the i.i.d.~current age of a machine. Using the analytical criterion of recurrence and transience determine a criterion in term of the transition probabilities for when every state is recurrent or transient.
+
+\subsection*{Solution}
+
+Assume that $\Pi(n,0) < 1$ for every $n\in \N$. If there exists $N$ such that, for every $n > N$, $\Pi(n,0) = 0$. Then $\Pi(n,n+1) = 1$, and thus, in this case every state is transient because there's a path of probability greater than 0 from the state $0$ to the state $N+1$ and eventually we would get there with probability 1. 
+
+The other case is when we assume that $\Pi(n,0) > 0$ for infinitely many $n$. I'm aware that by the analytical criterion there could be condition when this case happens and every state is transient. In fact, it could be that if $\Pi(n,0) \to 0$ at an exponential rate maybe every state is a transient state. However, I'm not sure how can that be proven (or disproven).

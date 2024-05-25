@@ -1,0 +1,76 @@
+% chktex-file 3 chktex-file 40 chktex-file 37 chktex-file 9
+\section{Martingalas}
+
+\begin{definition}
+    A una sucesión $Z_1,Z_2,\ldots$ de variables aleatorias se le considera un martingalas con respecto a una filtración $\mathscr{F} = \{F_j : j \in \N\}$ si, para cada $i\in\N$,
+    \[ \E [Z_{m+1} \;|\; F_m] = Z_m. \]
+\end{definition}
+
+\begin{definition}
+    A una sucesión $X_0,\ldots, X_m$ de martingalas se le considera acotada si existe $K > 0$, tal que para cualquier $i < m$,
+    \[ |Z_{i+1} - Z_i| \leq K, \]
+    con probabilidad 1.
+\end{definition}
+
+\begin{theorem}[Desigualdad de Azuma-Hoeffding] Sea $Z_1,\ldots, Z_m$ un martingalas acotado por una sucesión $\{c_i\}_{i\in\N}>0$, entonces
+    \[ \P\{Z_m - Z_1 \geq \varepsilon\} \leq \exp\left( \frac{-\varepsilon^2}{2\sum_{i = 1}^m c_i^2} \right). \]    
+\end{theorem}
+
+\begin{proof}[]
+    \vspace*{-2em}
+\end{proof}
+
+A partir de ahora, suponga que $k \geq 0$ para que el proceso pueda continuar de forma indefinida
+
+\begin{definition} Llame $M_m$ al promedio muestral del proceso de Polya y $Z_m$ a la proporción de bolas rojas que quedan en la urna después de $m$ turnos.
+    \[ M_m = \frac{1}{m} \sum_{i = 1}^m  X_i = \frac{1}{m} Y_m,\]
+    \[ Z_m = \frac{r+kY_m}{n+km} = \frac{r+ km M_m}{n+km}. \]
+\end{definition}
+
+Note que por la ley de grandes números, $M_m$ debería converger a $\E[X_i] = \frac{r}{n}$ cuando $m$ tiende a infinito con probabilidad 1. Sin embargo, la pregunta de esta sección es cuál es cómo se comporta $Z_m$ alrededor de infinito. Cuando $k = 0$, es claro que $Z_m = \frac{r}{n}$, pero, cuando $k > 0$ requerimos de otras herramientas para determinar este comportamiento.
+
+\begin{theorem}
+    Para una sucesión $\{x_i\}_{i = 1}^m$ y sea $y = \sum_{i = 1}^m x_i$, se sigue que
+    \[ \P\{X_{m+1} = 1 \;|\; X_1 = x_1, \ldots, X_m = x_m\} = \frac{r+ky}{n+km} \]
+\end{theorem}
+\begin{proof} De acuerdo a la regla de probabilidad condicional y al teorema~\ref{polya-mass}
+    \[ \everymath{\displaystyle}
+    \arraycolsep=1.8pt\def\arraystretch{2.5}
+    \begin{array}{rcl}
+        \P\{X_{m+1} = 1 \;|\; X_1 = 1, \ldots, X_m = x_m\} & = & \frac{\P\{X_1 = x_1, \ldots, X_m = x_m, X_{m+1} = 1\}}{\P\{X_1 = x_1, \ldots, X_m = x_m\}}\\
+        & = & \frac{r^{(k,y+1)} g^{(k,m-y)}}{n^{(k,m+1)}} \cdot \frac{n^{(k,m)}}{r^{(k,y)} g^{(k,m-y)}}\\
+        & = & \frac{r+ky}{n+km}.
+    \end{array} \]
+\end{proof}
+
+\begin{corollary}
+    \[ \P\{X_{m+1} = 1 \;|\; Y_m = y\} = \frac{r+ky}{n+km} \]
+\end{corollary}
+\begin{proof}
+    Usando el corolario~\ref{polya-mass-Y} y el teorema anterior,
+    \[ \everymath{\displaystyle}
+    \arraycolsep=1.8pt\def\arraystretch{2.5}
+    \begin{array}{rcl}
+        \P\{X_{m+1} = 1 \;|\; Y_m = y\} & = & \frac{\P\{X_{m+1} = 1, Y_m = y\}}{\P\{Y_m = y\}}\\
+        & = & \frac{\binom{m}{y} \P\{X_1 = x_1, \ldots, X_m = x_m, X_{m+1} = 1\}}{\binom{m}{y} \P\{X_1 = x_1, \ldots, X_m = x_m\} }\\
+        & = & \frac{r+ky}{n+km}.
+    \end{array} \]
+\end{proof}
+
+\begin{theorem}
+    Las variables $Z_1,Z_2,\ldots$ definen un martingalas con respecto a la filtración $\mathscr{F}_m = \sigma(X_1,\ldots, X_m)$.
+\end{theorem}
+\begin{proof} Para la última linea usamos el teorema anterior
+    \[ \everymath{\displaystyle}
+    \arraycolsep=1.8pt\def\arraystretch{3}
+    \begin{array}{rcl}
+        \E [Z_{m+1} \;|\; F_m] & = & \E \left[ \frac{r+k Y_{m+1}}{n+k(m+1)} \;\Big|\; F_m \right]\\
+        & = & \frac{ \E\left[r+k (Y_{m}+ X_{m+1})\;\Big|\; F_m \right]}{n+km+k}\\
+        & = & \frac{ r+k\E\left[Y_{m}+ X_{m+1}\;\Big|\; X_1,\ldots,X_m \right]}{n+km+k}\\
+        & = & \frac{ r+k\left[Y_{m}+\E [X_{m+1}\;|\; X_1,\ldots,X_m] \right]}{n+km+k}\\
+        & = & \frac{ r+k\left[Y_{m}+\P \{X_{m+1} = 1\;|\; X_1,\ldots,X_m\} \right]}{n+km+k}\\
+        & = & \frac{ r+k\left[Y_{m}+ \frac{r+ky}{n+km} \right]}{n+km+k}\\
+    \end{array} \]
+    Después de simplificar obtenemos
+    \[  = \frac{r+kY_m}{n+km} = Z_m. \]
+\end{proof}

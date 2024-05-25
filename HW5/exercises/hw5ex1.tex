@@ -31,6 +31,9 @@ We must find $\pi$ that satisfies
 The symmetry of the graph that is spanned by this matrix hints that all the entries of $\pi$ must be equal to $\frac{1}{5}$. In fact, after calculating the left eigenvectors of $\Pi$ we find that the only one with eigenvalue 1 is 
 \[ \pi = \left[ \frac{1}{5},\; \frac{1}{5},\;\frac{1}{5},\;\frac{1}{5},\;\frac{1}{5} \right]. \]
 
+Note that it's not reversible, take for instance $i = 0, j = 1$,
+\[ \frac{1}{5} \cdot \frac{1}{3} = \pi(0) \cdot \Pi_{0,1} \neq \pi(1) \cdot \Pi_{1,0} = \frac{1}{5} \cdot \frac{2}{3} \]
+
 \subsection*{Solution Part (d)}
 
 \[ \arraycolsep=4pt\def\arraystretch{1.2}

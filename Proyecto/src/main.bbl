@@ -1,0 +1,24 @@
+\begin{thebibliography}{3}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Alon and Spencer(2016)]{alon2016probabilistic}
+Noga Alon and Joel~H Spencer.
+\newblock \emph{The probabilistic method}.
+\newblock John Wiley \& Sons, 2016.
+
+\bibitem[Helfand(2013)]{helfand2013polya}
+NORA Helfand.
+\newblock Polya’s urn and the beta-bernoulli process.
+\newblock \emph{University of Chicago REU}, 2013.
+
+\bibitem[Siegrist(2024)]{PolyaUrnScheme}
+Kyle Siegrist.
+\newblock Pólya's urn process.
+\newblock \url{https://www.randomservices.org/random/urn/Polya.html}, 2024.
+\newblock Accessed: 2024-05-23.
+
+\end{thebibliography}

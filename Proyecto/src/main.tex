@@ -15,8 +15,8 @@
 % \usepackage[switch, displaymath, mathlines]{lineno}
 % \usepackage[allfiguresdraft]{draftfigure} % Disable pictures for fast rendering
 % \linenumbers{}
-% \counterwithin{equation}{subsection}
-% \newcommand\inlinetag{\stepcounter{equation}\ (\theequation)}
+\counterwithin{equation}{subsection}
+\newcommand\inlinetag{\stepcounter{equation}\ (\theequation)}
 
 %%--AUTOMATION----------------------------------------------------
 \usepackage{l3sys-shell}
@@ -46,16 +46,19 @@
 
 % Custom text commands
 \def\Var{\ensuremath{\mathbf{Var}}\:}
+\def\Cov{\ensuremath{\mathbf{Cov}}\:}
 \def\Bi{\ensuremath{\mathrm{Bi}}}
 \def\Be{\ensuremath{\mathrm{Be}}}
 
 % Theorems and more
 \theoremstyle{definition}
-\newtheorem{theorem}{Theorem}
-\newtheorem{definition}{Definition}[theorem]
-\newtheorem{corollary}{Corollary}[theorem]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem*{remark}{Remark}
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{definition}{Definición}[section]
+\newtheorem{corollary}{Corolario}[theorem]
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem*{remark}{Observación}
+
+
 
 % Custom Commands
 \newcommand{\angles}[1]{\ensuremath{\left\langle}#1\ensuremath{\right\rangle} }
@@ -64,14 +67,14 @@
 \def\ol{\ensuremath{\overline}}
 \def\ul{\ensuremath{\underline}}
 
-% Section Numbering Fixes
-\makeatletter
-\renewcommand\thesection{}
-\renewcommand\thesubsection{\@arabic\c@section.\@arabic\c@subsection}
-\makeatother
+% % Section Numbering Fixes
+% \makeatletter
+% \renewcommand\thesection{}
+% \renewcommand\thesubsection{\@arabic\c@section.\@arabic\c@subsection}
+% \makeatother
 
 % Title Info
-\title{Stochastic Processes: Homework 5}
+\title{Urnas de Polya como Proceso Estocástico en Tiempo Discreto}
 \author{Martín Prado}
 \date{\AdvanceDate[-1]\today} % For cheating deadlines change 0 to -1
 \publishers{Universidad de los Andes $-$ Bogotá Colombia}
@@ -83,8 +86,9 @@
 
 % \tableofcontents 
 
-\inputfiles{../exercises/*}
+\inputfiles{../chapters/*}
 
-% \bibliography{refs}
+\nocite{*}
+\bibliography{refs}
 
 \end{document}

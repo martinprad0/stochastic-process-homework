@@ -1,0 +1,66 @@
+\section*{Exercise 3}
+
+Consider a ramification process with a geometric reproduction distribution with parameter $\frac{1}{2}$.
+
+\begin{itemize}
+    \item[(a)] What are the entries of the rows of the transition matrix
+    \item[(b)] Is it irreducible?
+    \item[(c)] Which are the recurrent states and the transient states?
+    \item[(d)] Build a recursion system for the invariant measure and solve it.
+    \item[(e)] Is this invariant measure reversible?
+    \item[(f)] Using the transition matrix, which is the distribution for the extinction time if we start from the invariant distribution.  
+\end{itemize}
+
+\subsection*{Solution (a)}
+
+The set of states in this process is the population numbers. Thus, if we are at the state $n$, then we have $n$ individuals in our population. The descendance of this population is the sum of the descendance of each member in the population, each is distributed with $\sim\text{Geo}(1/2)$ and are independent from each other.
+\[ S_n = X_1+\cdots+X_n \]
+The sum of $n$ independent random variables with the geometric distribution has the negative binomial distribution
+\[ \Pi(n,k) = \P\{S_n = k\} = \binom{k+n-1}{k}{\left( \frac{1}{2} \right)}^{n+k},\; k \in \N. \]
+
+In particular, note that the row corresponding to the state $n=0$ is
+\[ \Pi(0,i) = \begin{cases}
+    1,& i = 0\\
+    0, & \mbox{otherwise}
+\end{cases} \]
+
+\subsection*{Solution (b)}
+
+No, the process is not irreducible because 0 is an absorbing state.
+
+\subsection*{Solution (c)}
+
+The only recurrent state is 0 because it's an absorbing state, and thus,
+\[ p_{0} = P\{\exists n,\; X_n = 0\;|\; X_0 = 0\} = 1. \]
+For the other states, $i\neq 0$
+\[ p_{i} = P\{\exists n,\; X_n = i\;|\; X_0 = i\} < 1 \]
+because $\P\{S_n = 0\} > 0$, and in every step there's a risk of extinction. Thus, the transient states are the ones different from 0.
+
+\subsection*{Solution (d)}
+
+According to the entries of the matrix we calculated on item (a), the recurrence obtained from the system $\mu \Pi = \mu$ is the following
+\[ \sum_{n\in \S} \mu(n) \Pi(n,k) = \mu(k) \]
+\[ = \sum_{n\in\S} \binom{n+k-1}{k} {\left( \frac{1}{2} \right)}^{n+k} \mu(n) = \mu(k). \]
+
+For $k = 0$,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \mu(0) & = & \sum_{n\in\S} {\left( \frac{1}{2} \right)}^{n} \mu(n)\\
+    & = & \mu(0) + \sum_{\substack{n\in\S\\ n\neq 0}} {\left( \frac{1}{2} \right)}^{n} \mu(n)
+\end{array}  \]
+
+This can only happen if $\mu(0) = 1$ and $\mu(n) = 0$ for $n\neq 0$. Therefore, we define the invariant distribution $\pi$ as
+\[ \pi(i) = \begin{cases}
+    1,& i = 0\\
+    0, & \mbox{otherwise}
+\end{cases} \]
+
+\subsection*{Solution (e)}
+
+No it isn't, for $j \neq 0$ note that
+\[ \pi(0) \cdot \Pi(0,j) = \Pi(0,j) \neq 0 = \pi(j) \cdot \Pi(j,0) \]
+
+\subsection*{Solution (f)}
+
+The distribution of the extinction time is 1 with probability 1 because we start already extinct according to $\pi$.

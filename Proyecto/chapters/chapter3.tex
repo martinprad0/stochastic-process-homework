@@ -1,0 +1,63 @@
+% chktex-file 3 chktex-file 40 chktex-file 37 chktex-file 9
+\section{Propiedades y Ejemplos}
+
+En esta sección vamos a explorar propiedades interesantes del proceso de Polya. Lo primero que vamos a observar es que la distribución límite de
+
+\begin{definition}[Variable Intercambiable]\label{variable}
+    Para una sucesión de variables aleatorias $X_1,\ldots, X_m$ con densidad conjunta $f$, se dice que $X_1,\ldots, X_m$ son intercambiables si para cualquier re-ordenamiento de los índices $\sigma \in S^m$,
+    \[ f(x_1,\ldots,x_m) = f(x_{\sigma(1)},\ldots,x_{\sigma(m)}). \]
+\end{definition}
+
+\begin{remark}
+    Note que de la definición se sigue que las densidades $f_1,\ldots,f_m$ de $X_1,\ldots,X_m$ respectivamente son iguales debido a que
+    \[ \everymath{\displaystyle}
+    \arraycolsep=1.8pt\def\arraystretch{2.5}
+    \begin{array}{rcl}
+        f_1(x_1) & = & \int_{\Omega^{m-1}} f(x_1,\ldots,x_m) dx_2 \ldots dx_m\\
+        & = & \int_{\Omega^{m-1}} f(x_{\sigma(1)},\ldots,x_{\sigma(m)}) dx_{2},\ldots,dx_{m}\\
+       \scriptstyle{( x_{1} \text{ en posición } \sigma(1) )} & = & f_{\sigma(1)}(x_1).
+    \end{array}\]
+    Sin embargo, esto no significa que sean independientes como en el caso de la urna de Polya.
+\end{remark}
+
+\begin{theorem}
+    Si $X_1,\ldots, X_m$ definen un proceso de Polya, entonces son intercambiables
+\end{theorem}
+\begin{proof}
+    De acuerdo al teorema~\ref{polya-mass}, la probabilidad conjunta de $X_1,\ldots,X_m$ solo depende de la suma $y = \sum_{i=1}^m x_1$:
+    \[ f(x_1,\ldots,x_m) = \P\{X_1 = x_1,\ldots, X_m = x_m\} = \frac{r^{(k,y)} g^{(k,m-y)}}{n^{(k,m)}}. \]
+    Por lo tanto, para cualquier re-ordenamiento de índices
+    \[ f(x_\sigma(1),\ldots,x_{\sigma(m)}) = \frac{r^{(k,y)} g^{(k,m-y)}}{n^{(k,m)}} = f(x_1,\ldots,x_m)\]
+\end{proof}
+
+Por lo tanto, $X_1\sim X_j$ para cualquier $j\in\N$, y a partir de esto, será fácil calcular la esperanza y las varianzas del proceso de Polya
+
+\begin{theorem}
+    \[ \E[X_i] = \frac{r}{n},\hspace*{1em} \Var[X_i] = \frac{rg}{n^2},\hspace*{1em}, \Cov[X_i,X_j] = \frac{rgk}{n^2 (n+k)^2}  \]
+\end{theorem}
+\begin{proof}
+    En primer lugar, note que para la primera bola $X_1 \sim \text{Ber}(r/n)$, y por ende,
+    \[ \E[X_1] = \frac{r}{n},\hspace*{1.5em} \Var[X_1] = \frac{r}{n}\cdot\frac{g}{n}. \]
+    Por el teorema anterior, es fácil ver que como $\P\{X_j = 1\} = \P\{X_1 = 1\} = r/n$, entonces, comparten los mismos momentos. Finalmente, como son intercambiables, se sigue que
+    \[ \P\{X_i = 1, X_j = 1\} = \P\{X_1 = 1, X_2 = 1\} = \frac{r}{n}\cdot \frac{r+k}{n+k} \]
+    Por ende, para la covarianza de las variables,
+    \[ \everymath{\displaystyle}
+    \arraycolsep=1.8pt\def\arraystretch{2.5}
+    \begin{array}{rcl}
+        \text{Cov}(X_i,X_j) & = & \E[X_i X_j] - \E[X_i]\E[X_j]\\
+        & = & \P\{X_i = 1, X_j = 1\} - \frac{r^2}{n^2}\\
+        & = & \frac{r}{n}\cdot \frac{r+k}{n+k} - \frac{r^2}{n^2}\\
+        & = & \frac{rgk}{n^2 (n+k)^2}.
+    \end{array} \]
+
+\end{proof}
+
+\begin{corollary}
+    \[ \E[Y_m] = m\frac{r}{n},\hspace*{1.5em} \Var[Y_m] = \frac{r}{n} \cdot \frac{g}{n} \cdot \frac{m(n+1)}{2n^2}. \]
+\end{corollary}
+
+Ahora, vamos a presentar algunos ejemplos de distribuciones asociadas al proceso de Polya
+
+\begin{theorem}
+    
+\end{theorem}

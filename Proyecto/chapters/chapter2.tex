@@ -1,0 +1,118 @@
+% chktex-file 3 chktex-file 40
+\section{Distribución Beta-Binomial}
+
+Vamos a exponer algunas funciones que aparecen dentro de las distribuciones con las que estamos trabajando al usar los modelos de urnas. En primer lugar, tenemos la función $\Gamma$ (Gamma) que funciona como una generalización del factorial para números reales.
+
+\begin{definition}[Función Gamma] Para cualquier $x\in \R$, la función Gamma se define como
+    \[ \Gamma(x) = \int_{0}^{\infty} t^{x-1} e^{-t} dt  \]
+\end{definition}
+
+\begin{theorem}
+    Para cualquier $x > 1$, $\Gamma(x) = (x-1)\Gamma(x-1)$. En particular, si $n \in\Z^+$, entonces $\Gamma(n) = (n-1)!$
+\end{theorem}
+
+\begin{proof}
+    Usando integración por partes obtenemos que
+    \[ \everymath{\displaystyle}
+    \arraycolsep=1.8pt\def\arraystretch{2.5}
+    \begin{array}{rcl}
+        \Gamma(x) & = & \int_{0}^{\infty} t^{x-1} e^{-t} dt\\  
+        & = & \cancelto{0}{\left[ -e^{-t} t^{x-1} \right]_0^{\infty}}  + \int_{0}^{\infty} (x-1)t^{x-2}e^{-t} dt\\
+        & = & (x-1) \int_{0}^{\infty} t^{x-2}e^{-t} dt\\
+        & = & (x-1)\Gamma(x-1).
+    \end{array} \]
+    Note que para $x = 1$,
+    \[ \Gamma(1) = \int_{0}^{\infty} t^{0} e^{-t} dt = 1 = 0! \]
+    Por lo que para cualquier número natural $n \geq 1$,
+    \[ \Gamma(n) = (n-1)(n-2)\cdots 1 \cdot \Gamma(1) = (n-1)! \]
+\end{proof}
+
+\begin{remark} También, se puede crear con la función Gamma una generalización de las formulas de permutación generalizadas.
+    \[ \everymath{\displaystyle}
+    \arraycolsep=1.8pt\def\arraystretch{2.5}
+    \begin{array}{rclcl}
+        r^{(s,j)} & = & \prod_{i=0}^{j-1} r+is
+        & = & s^j \cdot \prod_{i=0}^{j-1} \frac{r}{s}+i\\
+        & = & s^j \cdot (r/s)^{[j]}
+        & = & s^j \cdot \frac{\Gamma(r/s+j)}{\Gamma(r/s)}
+    \end{array}  \]
+\end{remark}
+
+Otra función que posee algunas similitudes con la función combinatoria es la función $\beta$ (Beta).
+
+\begin{definition}[Función Beta] Para cualquier $a,b \in \R$ la función Beta se define como
+    \[ \beta(a,b) = \int_0^1 p^{a-1} (1-p)^{b-1} dp. \]
+\end{definition}
+
+\begin{theorem} Para cualquier $a,b \in \R$,
+    \[ \beta(a,b) = \dfrac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)} \]
+\end{theorem}
+\begin{proof}[]
+    \vspace*{-2em}
+\end{proof}
+
+De aquí en adelante, denotaremos $Y_m$ como la cantidad de bolas rojas obtenidas en el modelos simple de Polya después de $m$ intentos.
+
+\begin{definition}
+    \[ Y_m = \sum_{i = 1}^{m} X_i. \]
+\end{definition}
+
+La meta de los siguientes teoremas es encontrar una distribución para $Y_m$ usando las herramientas que hemos desarrollado en esta parte del proyecto.
+
+\begin{theorem}\label{polya-mass}
+    Para $X_1,\ldots, X_m$ obtenidas del proceso de Polya que definimos anteriormente, tenemos una sucesión $(x_i)_{i\leq m} \in \{0,1\}^m$ que define qué color se sacó en cada turno, y en lo que dura el experimento se saca un total de $y = \sum_{i = 1}^m x_i$ bolas rojas. Entonces,
+    \[  \P\{X_1 = x_1,\ldots, X_m = x_m\} = \frac{r^{(k,y)} g^{(k,m-y)}}{n^{(k,m)}}. \]
+\end{theorem}
+\begin{proof} 
+    Dentro de los $m$ turnos, se sacan en total $y$ bolas rojas y $m-y$ bolas verdes. Eventualmente, 
+    \begin{itemize}
+        \item En algunos turnos la urna va a tener $r,(r+k),\ldots,(r+(y-1)k)$ bolas rojas.
+        \item En otros turnos $g,(g+k),\ldots,(g+(m-y-1)k)$ bolas verdes.
+        \item Por otra parte, el total de bolas, independientemente de cuál color saquemos va a ser en cada turno $n, (n+k), \ldots, (n+(y-1)k)$ respectivamente.
+    \end{itemize}
+    Por principio de multiplicación, después reordenar la formula de probabilidad obtenemos
+    \[ \everymath{\displaystyle}
+    \arraycolsep=1.8pt\def\arraystretch{2.5}
+    \begin{array}{rcl}
+        \P\{X_1 = x_1,\ldots, X_m = x_m\} & = & \frac{r(r+k)\cdots(r+(y-1)k) \times g(g+k)\cdots(g+(m-y-1)k)}{n(n+k)\cdots(n+(m-1)k)}\\
+        & = & \frac{r^{(k,y)} g^{(k,m-y)}}{n^{(k,m)}}.
+    \end{array}    
+     \]
+\end{proof}
+
+\begin{corollary}\label{polya-mass-Y}
+    Para $0\leq y \leq m$, y una sucesión $x_1,\ldots,x_m$ tal que $\sum_{i = 1}^m x_i = y$,
+    \[ \P\{Y_m = y\} = \binom{m}{y} \P\{X_1 = x_1,\ldots, X_m = x_m\} = \binom{m}{y}\frac{r^{(k,y)} g^{(k,m-y)}}{n^{(k,m)}}.\]
+\end{corollary}
+\begin{proof}[]
+    \vspace*{-2em}
+\end{proof}
+
+Esta puede parecer una respuesta satisfactoria ante la pregunta de cuál es la distribución $Y_m$. Sin embargo, podemos mejorar aún más la respuesta introduciendo la siguiente función de distribución.
+
+\begin{definition}[Distribución Beta-Binomial] Se dice que una variable aleatoria discreta $Y$ tiene la distribución Beta-Binomial con parámetros $m\in \N$, $a,b\in \R^+$, o en otras palabras, $Y\sim\text{BetaBin}(m,a,b)$ cuando
+    \[ \P\{Y = y\} = \binom{m}{y}\frac{\beta(y+a,m-y+b)}{\beta(a,b)}. \]    
+\end{definition}
+
+Para hacer uso de la función de distribución anterior, debemos hacer los siguientes cambios a la ecuación del corolario anterior
+\[ \frac{r^{(k,y)} g^{(k,m-y)}}{n^{(k,m)}} = \frac{[r^{(k,y)}/k^y] [g^{(k,m-y)}/k^{m-y}]}{[n^{(k,m)}/k^m]} = \frac{(r/k)^{[y]}(g/k)^{[m-k]}}{(n/k)^{[m]}}. \]
+Por ende,
+
+\begin{theorem} 
+    $Y_m$ tiene una distribución Beta-Binomial con parámetros $m$, $r/k$ y $g/k$. Es decir,
+    \[ Y_m\sim \text{BetaBin}\left( m, \frac{r}{k}, \frac{g}{k} \right) \]
+\end{theorem}
+
+\begin{proof} Usando la fórmula anterior, y propiedades de la función $\Gamma$ obtenemos
+    \[ \everymath{\displaystyle}
+    \arraycolsep=1.8pt\def\arraystretch{3}
+    \begin{array}{rcl}
+        \P\{Y_m = y\} & = & \binom{m}{y} \frac{(r/k)^{[y]}(g/k)^{[m-k]}}{(n/k)^{[m]}} \\
+        & = & \binom{m}{y} \frac{\frac{\Gamma(\frac{r}{k}+y)}{\Gamma(\frac{r}{k})} \cdot \frac{\Gamma(\frac{g}{k}+m-y)}{\Gamma(\frac{g}{k})}}{\frac{\Gamma(\frac{n}{k}+m)}{\Gamma(\frac{n}{k})}} \\
+        & = & \binom{m}{y} \frac{\Gamma(\frac{r}{k}+y) \cdot \Gamma(\frac{g}{k}+m-y)}{\Gamma(\frac{n}{k}+m)} \cdot \frac{\Gamma(\frac{n}{k})}{\Gamma(\frac{r}{k}) \cdot \Gamma(\frac{g}{k})} \\
+        & = & \binom{m}{y} \frac{\beta\left( \frac{r}{k} + y, \frac{g}{k} + m - y \right)}{\beta\left( \frac{r}{k}, \frac{g}{k} \right)} 
+    \end{array}\]
+\end{proof}
+
+
+
