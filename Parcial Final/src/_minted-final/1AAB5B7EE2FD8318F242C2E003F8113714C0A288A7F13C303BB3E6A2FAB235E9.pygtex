@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{n}{T} \PYG{o}{=} \PYG{l+m+mi}{100} \PYG{c+c1}{\PYGZsh{} max time}
+    \PYG{n}{N} \PYG{o}{=} \PYG{l+m+mi}{100} \PYG{c+c1}{\PYGZsh{} number of trajectories}
+    \PYG{n}{trajectories} \PYG{o}{=} \PYG{p}{[]}
+
+    \PYG{k}{for} \PYG{n}{trajectory\PYGZus{}index} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{N}\PYG{p}{):} \PYG{c+c1}{\PYGZsh{} simulating N trajectories}
+        \PYG{n}{state\PYGZus{}list} \PYG{o}{=} \PYG{p}{[}\PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{choice}\PYG{p}{(}\PYG{n}{states}\PYG{p}{,} \PYG{n}{p}\PYG{o}{=}\PYG{n}{transition\PYGZus{}invariant}\PYG{p}{)]}
+        \PYG{k}{for} \PYG{n}{t} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{T}\PYG{p}{):}
+            \PYG{n}{current\PYGZus{}state} \PYG{o}{=} \PYG{n}{state\PYGZus{}list}\PYG{p}{[}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}
+            \PYG{n}{next\PYGZus{}state} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{choice}\PYG{p}{(}\PYG{n}{states}\PYG{p}{,} \PYG{n}{p}\PYG{o}{=}\PYG{n}{transition\PYGZus{}matrix}\PYG{p}{[}\PYG{n}{current\PYGZus{}state}\PYG{p}{])}
+            \PYG{n}{state\PYGZus{}list}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{next\PYGZus{}state}\PYG{p}{)}
+        \PYG{n}{state\PYGZus{}list} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n}{state\PYGZus{}list}\PYG{p}{)}
+        \PYG{n}{trajectories}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{state\PYGZus{}list}\PYG{p}{)}
+\end{Verbatim}

@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{k}{def} \PYG{n+nf}{get\PYGZus{}left\PYGZus{}eigenvector}\PYG{p}{(}\PYG{n}{matrix}\PYG{p}{,} \PYG{n}{desired\PYGZus{}eigenvalue}\PYG{p}{):}
+        \PYG{n}{eigenvalues}\PYG{p}{,} \PYG{n}{multiplicity}\PYG{p}{,} \PYG{n}{eigenvectors} \PYG{o}{=} \PYG{n+nb}{list}\PYG{p}{(}\PYG{n+nb}{zip}\PYG{p}{(}\PYG{o}{*}\PYG{n}{sp}\PYG{o}{.}\PYG{n}{Matrix}\PYG{p}{(}\PYG{n}{matrix}\PYG{o}{.}\PYG{n}{T}\PYG{p}{)}\PYG{o}{.}\PYG{n}{eigenvects}\PYG{p}{()))}
+
+        \PYG{n}{solution\PYGZus{}index} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{argmin}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{desired\PYGZus{}eigenvalue} \PYG{o}{\PYGZhy{}} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n}{eigenvalues}\PYG{p}{)))}
+        \PYG{n}{solution} \PYG{o}{=} \PYG{n}{eigenvectors}\PYG{p}{[}\PYG{n}{solution\PYGZus{}index}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]}
+        \PYG{n}{solution} \PYG{o}{=} \PYG{n}{solution} \PYG{o}{/} \PYG{n+nb}{sum}\PYG{p}{(}\PYG{n}{solution}\PYG{p}{)}
+        \PYG{k}{return} \PYG{n}{sp}\PYG{o}{.}\PYG{n}{nsimplify}\PYG{p}{(}\PYG{n}{solution}\PYG{o}{.}\PYG{n}{T}\PYG{o}{.}\PYG{n}{simplify}\PYG{p}{(),} \PYG{n}{tolerance}\PYG{o}{=}\PYG{l+m+mf}{0.0001}\PYG{p}{,} \PYG{n}{rational}\PYG{o}{=} \PYG{k+kc}{True}\PYG{p}{)}
+\end{Verbatim}

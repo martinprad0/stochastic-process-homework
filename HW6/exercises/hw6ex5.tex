@@ -1,0 +1,19 @@
+% chktex-file 3 chktex-file 9 chktex-file 17
+\section{Exercise 5}
+
+For a random variable $X\sim \hbox{Geo}(p)$ with the geometric distribution
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \P\{X \geq n+m \;|\; X \geq m\} & = & \frac{ \P\{X \geq n+m \;\land\; X \geq m\}}{ \P\{X \geq m\}}\\
+    & = & \frac{ \P\{X \geq n+m\} }{ \P\{X \geq m\}}\\
+    & = & \frac{(1-p)^{n+m}}{(1-p)^m}\\
+    & = & (1-p)^n= \P\{X \geq n\} \\
+\end{array} \]
+
+This proves that the process is memoryless. Now, we define a sequence of i.i.d.~random variables $(X_i)_{i\in\N} \sim \hbox{Geo}(p)$. Also, denote the $k$-th renovation time as $T_k = \sum_{i = 1}^{k} X_i$, which has a negative binomial distribution since it's the sum of geometric random variables.
+\[ T_k \sim \hbox{BinNeg}(k,p). \]
+For the trial $n$, we define the counting variable $N(n)$ as follows,
+\[ N(t) = \max\{n\in\N \;:\, T_n \leq t\} \]
+This variable counts the number of renovations that occur in $n$-trials. Thus, it has the binomial distribution
+\[ N(t) \sim \hbox{Bin}(n,p) \]

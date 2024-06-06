@@ -25,29 +25,29 @@ En esta sección vamos a explorar propiedades interesantes del proceso de Polya.
 \end{theorem}
 \begin{proof}
     De acuerdo al teorema~\ref{polya-mass}, la probabilidad conjunta de $X_1,\ldots,X_m$ solo depende de la suma $y = \sum_{i=1}^m x_1$:
-    \[ f(x_1,\ldots,x_m) = \P\{X_1 = x_1,\ldots, X_m = x_m\} = \frac{r^{(k,y)} g^{(k,m-y)}}{n^{(k,m)}}. \]
+    \[ f(x_1,\ldots,x_m) = \P\{X_1 = x_1,\ldots, X_m = x_m\} = \frac{r^{(I,y)} g^{(I,m-y)}}{n^{(I,m)}}. \]
     Por lo tanto, para cualquier re-ordenamiento de índices
-    \[ f(x_\sigma(1),\ldots,x_{\sigma(m)}) = \frac{r^{(k,y)} g^{(k,m-y)}}{n^{(k,m)}} = f(x_1,\ldots,x_m)\]
+    \[ f(x_\sigma(1),\ldots,x_{\sigma(m)}) = \frac{r^{(I,y)} g^{(I,m-y)}}{n^{(I,m)}} = f(x_1,\ldots,x_m)\]
 \end{proof}
 
 Por lo tanto, $X_1\sim X_j$ para cualquier $j\in\N$, y a partir de esto, será fácil calcular la esperanza y las varianzas del proceso de Polya
 
 \begin{theorem}
-    \[ \E[X_i] = \frac{r}{n},\hspace*{1em} \Var[X_i] = \frac{rg}{n^2},\hspace*{1em}, \Cov[X_i,X_j] = \frac{rgk}{n^2 (n+k)^2}  \]
+    \[ \E[X_i] = \frac{r}{n},\hspace*{1em} \Var[X_i] = \frac{rg}{n^2},\hspace*{1em}, \Cov[X_i,X_j] = \frac{rgk}{n^2 (n+I)^2}  \]
 \end{theorem}
 \begin{proof}
     En primer lugar, note que para la primera bola $X_1 \sim \text{Ber}(r/n)$, y por ende,
     \[ \E[X_1] = \frac{r}{n},\hspace*{1.5em} \Var[X_1] = \frac{r}{n}\cdot\frac{g}{n}. \]
     Por el teorema anterior, es fácil ver que como $\P\{X_j = 1\} = \P\{X_1 = 1\} = r/n$, entonces, comparten los mismos momentos. Finalmente, como son intercambiables, se sigue que
-    \[ \P\{X_i = 1, X_j = 1\} = \P\{X_1 = 1, X_2 = 1\} = \frac{r}{n}\cdot \frac{r+k}{n+k} \]
+    \[ \P\{X_i = 1, X_j = 1\} = \P\{X_1 = 1, X_2 = 1\} = \frac{r}{n}\cdot \frac{r+I}{n+I} \]
     Por ende, para la covarianza de las variables,
     \[ \everymath{\displaystyle}
     \arraycolsep=1.8pt\def\arraystretch{2.5}
     \begin{array}{rcl}
         \text{Cov}(X_i,X_j) & = & \E[X_i X_j] - \E[X_i]\E[X_j]\\
         & = & \P\{X_i = 1, X_j = 1\} - \frac{r^2}{n^2}\\
-        & = & \frac{r}{n}\cdot \frac{r+k}{n+k} - \frac{r^2}{n^2}\\
-        & = & \frac{rgk}{n^2 (n+k)^2}.
+        & = & \frac{r}{n}\cdot \frac{r+I}{n+I} - \frac{r^2}{n^2}\\
+        & = & \frac{rgk}{n^2 (n+I)^2}.
     \end{array} \]
 
 \end{proof}
@@ -56,8 +56,30 @@ Por lo tanto, $X_1\sim X_j$ para cualquier $j\in\N$, y a partir de esto, será f
     \[ \E[Y_m] = m\frac{r}{n},\hspace*{1.5em} \Var[Y_m] = \frac{r}{n} \cdot \frac{g}{n} \cdot \frac{m(n+1)}{2n^2}. \]
 \end{corollary}
 
-Ahora, vamos a presentar algunos ejemplos de distribuciones asociadas al proceso de Polya
-
 \begin{theorem}
-    
+    Para una sucesión $\{x_i\}_{i = 1}^m$ y sea $y = \sum_{i = 1}^m x_i$, se sigue que
+    \[ \P\{X_{m+1} = 1 \;|\; X_1 = x_1, \ldots, X_m = x_m\} = \frac{r+ky}{n+km} \]
 \end{theorem}
+\begin{proof} De acuerdo a la regla de probabilidad condicional y al teorema~\ref{polya-mass}
+    \[ \everymath{\displaystyle}
+    \arraycolsep=1.8pt\def\arraystretch{2.5}
+    \begin{array}{rcl}
+        \P\{X_{m+1} = 1 \;|\; X_1 = 1, \ldots, X_m = x_m\} & = & \frac{\P\{X_1 = x_1, \ldots, X_m = x_m, X_{m+1} = 1\}}{\P\{X_1 = x_1, \ldots, X_m = x_m\}}\\
+        & = & \frac{r^{(k,y+1)} g^{(k,m-y)}}{n^{(k,m+1)}} \cdot \frac{n^{(k,m)}}{r^{(k,y)} g^{(k,m-y)}}\\
+        & = & \frac{r+ky}{n+km}.
+    \end{array} \]
+\end{proof}
+
+\begin{corollary}
+    \[ \P\{X_{m+1} = 1 \;|\; Y_m = y\} = \frac{r+ky}{n+km} \]
+\end{corollary}
+\begin{proof}
+    Usando el corolario~\ref{polya-mass-Y} y el teorema anterior,
+    \[ \everymath{\displaystyle}
+    \arraycolsep=1.8pt\def\arraystretch{2.5}
+    \begin{array}{rcl}
+        \P\{X_{m+1} = 1 \;|\; Y_m = y\} & = & \frac{\P\{X_{m+1} = 1, Y_m = y\}}{\P\{Y_m = y\}}\\
+        & = & \frac{\binom{m}{y} \P\{X_1 = x_1, \ldots, X_m = x_m, X_{m+1} = 1\}}{\binom{m}{y} \P\{X_1 = x_1, \ldots, X_m = x_m\} }\\
+        & = & \frac{r+ky}{n+km}.
+    \end{array} \]
+\end{proof}

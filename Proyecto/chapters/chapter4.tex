@@ -7,8 +7,8 @@
 \end{definition}
 
 \begin{definition}
-    A una sucesión $X_0,\ldots, X_m$ de martingalas se le considera acotada si existe $K > 0$, tal que para cualquier $i < m$,
-    \[ |Z_{i+1} - Z_i| \leq K, \]
+    A una sucesión $Z_1,\ldots, X_m$ de martingalas se le considera acotada si existe $c_i > 0$, tal que para cualquier $i < m$,
+    \[ |Z_{i+1} - Z_i| \leq c_i, \]
     con probabilidad 1.
 \end{definition}
 
@@ -27,35 +27,9 @@ A partir de ahora, suponga que $k \geq 0$ para que el proceso pueda continuar de
     \[ Z_m = \frac{r+kY_m}{n+km} = \frac{r+ km M_m}{n+km}. \]
 \end{definition}
 
-Note que por la ley de grandes números, $M_m$ debería converger a $\E[X_i] = \frac{r}{n}$ cuando $m$ tiende a infinito con probabilidad 1. Sin embargo, la pregunta de esta sección es cuál es cómo se comporta $Z_m$ alrededor de infinito. Cuando $k = 0$, es claro que $Z_m = \frac{r}{n}$, pero, cuando $k > 0$ requerimos de otras herramientas para determinar este comportamiento.
+Note que en caso de existir un límite en probabilidad para $M_m$, $Z_m$ tendría el mismo límite.
 
-\begin{theorem}
-    Para una sucesión $\{x_i\}_{i = 1}^m$ y sea $y = \sum_{i = 1}^m x_i$, se sigue que
-    \[ \P\{X_{m+1} = 1 \;|\; X_1 = x_1, \ldots, X_m = x_m\} = \frac{r+ky}{n+km} \]
-\end{theorem}
-\begin{proof} De acuerdo a la regla de probabilidad condicional y al teorema~\ref{polya-mass}
-    \[ \everymath{\displaystyle}
-    \arraycolsep=1.8pt\def\arraystretch{2.5}
-    \begin{array}{rcl}
-        \P\{X_{m+1} = 1 \;|\; X_1 = 1, \ldots, X_m = x_m\} & = & \frac{\P\{X_1 = x_1, \ldots, X_m = x_m, X_{m+1} = 1\}}{\P\{X_1 = x_1, \ldots, X_m = x_m\}}\\
-        & = & \frac{r^{(k,y+1)} g^{(k,m-y)}}{n^{(k,m+1)}} \cdot \frac{n^{(k,m)}}{r^{(k,y)} g^{(k,m-y)}}\\
-        & = & \frac{r+ky}{n+km}.
-    \end{array} \]
-\end{proof}
-
-\begin{corollary}
-    \[ \P\{X_{m+1} = 1 \;|\; Y_m = y\} = \frac{r+ky}{n+km} \]
-\end{corollary}
-\begin{proof}
-    Usando el corolario~\ref{polya-mass-Y} y el teorema anterior,
-    \[ \everymath{\displaystyle}
-    \arraycolsep=1.8pt\def\arraystretch{2.5}
-    \begin{array}{rcl}
-        \P\{X_{m+1} = 1 \;|\; Y_m = y\} & = & \frac{\P\{X_{m+1} = 1, Y_m = y\}}{\P\{Y_m = y\}}\\
-        & = & \frac{\binom{m}{y} \P\{X_1 = x_1, \ldots, X_m = x_m, X_{m+1} = 1\}}{\binom{m}{y} \P\{X_1 = x_1, \ldots, X_m = x_m\} }\\
-        & = & \frac{r+ky}{n+km}.
-    \end{array} \]
-\end{proof}
+Ahora, con estas herramientas, el objetivo es probar que la sucesión de variables $Z_m$ converge c.s.~a una variable aleatoria $Z_\infty$ con distribución beta. Para esto vamos a probar que son un martingalas y luego usar el teorema de convergencia de Doob para probar que existe la variable aleatoria límite.
 
 \begin{theorem}
     Las variables $Z_1,Z_2,\ldots$ definen un martingalas con respecto a la filtración $\mathscr{F}_m = \sigma(X_1,\ldots, X_m)$.
@@ -73,4 +47,39 @@ Note que por la ley de grandes números, $M_m$ debería converger a $\E[X_i] = \
     \end{array} \]
     Después de simplificar obtenemos
     \[  = \frac{r+kY_m}{n+km} = Z_m. \]
+\end{proof}
+
+\begin{theorem}[Teorema de Doob para convergencia de martingalas]
+    Sea $Z_1, Z_2,\ldots,$ un martingalas que satisface
+    \[ \sup_n \E[|Z_m|] < \infty. \]
+    Entonces, existe $Z_\infty$ tal que $Z_m \to Z_\infty$ casi siempre y $Z_\infty$ tiene esperanza finita.
+\end{theorem}
+\begin{proof}[]
+\vspace*{-1em}
+\end{proof}
+
+\begin{theorem}
+    $M_m$ converge en distribución a una variable aleatoria $P$ con distribución beta, $P \sim \beta(r/I, g/I)$.
+\end{theorem}
+\begin{proof}
+    Usamos teorema~\ref{Y-distribution}
+    \[ \P\{M_m \leq x\} = \P\{Y_m \leq mx\} = \sum_{y = 0}^{\floor{mx}} \binom{m}{y} \frac{\beta\left( \frac{r}{I} + y, \frac{g}{I} + m - y \right)}{\beta\left( \frac{r}{I}, \frac{g}{I} \right)}   \]
+    Luego, usamos la fórmula explícita de la función beta, para abreviar usamos $a = r/I$, $b = g/I$
+    \[ \everymath{\displaystyle}
+    \arraycolsep=1.8pt\def\arraystretch{3}
+    \begin{array}{rcl}
+        \P\{M_m \leq x\} & = & \frac{1}{\beta\left( a, n \right)} \sum_{y = 0}^{\floor{mx}} \binom{m}{y} \beta\left( a + y, b + m - y \right) \\
+        & = & \frac{1}{\beta\left( a, b \right)} \sum_{y = 0}^{\floor{mx}} \binom{m}{y} \int_0^1 p^{a + y-1} (1-p)^{b + m - y-1} dp\\
+        & = & \frac{1}{\beta\left( a, b \right)} \int_0^1 \left( \sum_{y = 0}^{\floor{mx}} \binom{m}{y} p^y (1-p)^{m-y} \right) p^{a-1} (1-p)^{b-1} dp
+    \end{array} \]
+    Defina una variable aleatoria $B_m \sim \hbox{Bin}(m,p)$ y note que la sumatoria de la expresión anterior es equivalente a $\P\{B_m \leq mx\} = \P\{B_m/m \leq x\}$. Note que $B_m/m$ es promedio muestral de $m$ Bernoulli's y por la ley de grandes números, $\P\{B_m/m \leq x\}$ converge a $\1\{p \leq x\}$. Por ende, usando el teorema de convergencia dominada, finalmente obtenemos
+    \[ \P\{M_m \leq x\} \to \frac{1}{\beta\left( a, b \right)} \int_0^1  p^{a-1} (1-p)^{b-1} dp = \hbox{Beta}(a,b)\]
+    Por lo tanto, $M_n$ converge en distribución a la distribución $\hbox{Beta}(a,b) = \hbox{Beta}(r/I,g/I)$.
+\end{proof}
+
+\begin{corollary}
+    la sucesión $Z_m$ converge c.s. a una variable aleatoria $Z_\infty$ con distribución $\hbox{Beta}(r/I,g/I)$.
+\end{corollary}
+\begin{proof}
+    Note que $Z_m$ y $M_m$ tienen el mismo límite en distribución. Por lo tanto, usando el teorema anterior $Z_m$ converge en distribución a la distribution $\hbox{Beta}(r/I,g/I)$. Por otra parte, $\E[|Z_m|] \leq 1$, por ende, usando el teorema de Doob, probamos que el límite $Z_\infty$ existe, y como este límite es único debe tener distribución $\hbox{Beta}(r/I,g/I)$.
 \end{proof}

@@ -1,0 +1,93 @@
+\def\edgebending{0cm}
+\def\loopsize{0.5cm}
+\definecolor{edgecolor}{RGB}{57, 0, 19}
+\tikzstyle{matrix of math nodes}=[%
+    matrix of nodes,
+    nodes={%
+     execute at begin node=$,%
+     execute at end node=$%
+    }%
+  ]
+\begin{tikzpicture}[scale=1.5,
+    vertex/.style={fill = purple, circle, text = white, font=\bfseries},
+    arc/.style={draw,ultra thick,->, shorten >=0.05cm, bend right = \edgebending, edgecolor},
+    loop/.style={->, shorten > = 0.1cm, ultra thick, edgecolor}
+    ]
+
+    \newcommand{\coords}{
+	(1.6030834721907683e-16, 2.618033988749895),
+	(-2.48989828488278, 0.8090169943749477),
+	(-1.538841768587627, -2.1180339887498945),
+	(1.5388417685876261, -2.1180339887498953),
+	(2.4898982848827806, 0.8090169943749468),
+	(-0.587785252292473, 0.8090169943749475),
+	(-0.9510565162951536, -0.3090169943749473),
+	(-1.8369701987210297e-16, -1.0),
+	(0.9510565162951535, -0.3090169943749476),
+	(0.5877852522924734, 0.8090169943749472)
+}
+\newcommand{\adjmatrix}{
+	{0, 0, 0, 0, 0, 1, 0, 0, 0, 1},
+	{0, 0, 0, 0, 0, 1, 1, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 1, 1, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 1, 1, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 1, 1},
+	{1, 1, 0, 0, 0, 0, 1, 0, 0, 1},
+	{0, 1, 1, 0, 0, 1, 0, 1, 0, 0},
+	{0, 0, 1, 1, 0, 0, 1, 0, 1, 0},
+	{0, 0, 0, 1, 1, 0, 0, 1, 0, 1},
+	{1, 0, 0, 0, 1, 1, 0, 0, 1, 0},
+}
+\newcommand{\labelmatrix}{
+	{0, 0, 0, 0, 0, 1, 0, 0, 0, 1},
+	{0, 0, 0, 0, 0, 1, 1, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 1, 1, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 1, 1, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 1, 1},
+	{1, 1, 0, 0, 0, 0, 1, 0, 0, 1},
+	{0, 1, 1, 0, 0, 1, 0, 1, 0, 0},
+	{0, 0, 1, 1, 0, 0, 1, 0, 1, 0},
+	{0, 0, 0, 1, 1, 0, 0, 1, 0, 1},
+	{1, 0, 0, 0, 1, 1, 0, 0, 1, 0},
+}
+
+    \newcommand{\nodenames}{"E0", "E1", "E2", "E3", "E4", "I0", "I1", "I2", "I3", "I4"}
+
+    \newcommand{\getmatrixitem}[2]{%
+    \StrBetween[#2,#1]{\labelmatrix}{, }{, }%
+}
+
+
+    % Define vertices
+    \foreach [count = \i] \pos in \coords {
+        \pgfmathsetmacro{\nodeangle}{round(90-atan2(\pos))}
+        \ifnum\i=1
+            \xdef\anglelist{\nodeangle}
+        \else
+            \xdef\anglelist{\anglelist,\nodeangle}
+        \fi
+        \coordinate[at=\pos, name=p\i];
+        \pgfmathsetmacro{\nodename}{{\nodenames}[\i-1]}
+        \node[vertex, at=\pos, name=V\i]{\nodename};
+    }
+        
+    % Define edges
+    \foreach [count = \i] \row in \labelmatrix{
+    \foreach [count = \j] \edgelabel in \row{
+        \pgfmathsetmacro{\weight}{{\adjmatrix}[\i-1][\j-1]}
+        % Weight > 0
+        \pgfmathsetmacro{\edgeexists}{\weight != 0 ? 1 : 0}
+        \ifnum\edgeexists>0
+            \pgfmathsetmacro{\isloop}{\i-\j == 0 ? 1 : 0}
+            \ifnum\isloop>0
+                \pgfmathsetmacro{\nodeangle}{{\anglelist}[\i-1]}
+                \pgfmathsetmacro{\outangle}{int(\nodeangle - 50)}
+                \pgfmathsetmacro{\inangle}{int(\nodeangle + 50)}
+                \draw[loop] (V\i) to [in=\outangle,out=\inangle,looseness=\loopsize] node[] {} (V\i);
+            \else
+                \draw[arc] (V\i) to node[inner sep=1pt] {} (V\j);
+            \fi            
+        \fi
+    }
+    }
+\end{tikzpicture}

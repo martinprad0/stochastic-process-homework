@@ -1,0 +1,30 @@
+% chktex-file 9 chktex-file 17
+\section{Exercise 3}
+
+Show the Law of Large Numbers and the Central Limit Theorem for the Poisson Process
+
+\subsection*{Solution}
+
+The Law of Large numbers states that for a sequence of independent random variables $N_i \sim \hbox{Pois}(\lambda)$,
+\[ \frac{1}{n}\sum_{i = 1}^{n} N_i \to \lambda\hspace*{1em} \hbox{as }n\to\infty.\; a.e. \]
+As a matter of fact, $\sum_{i = 1}^n N_i \sim \hbox{Pois}(\lambda n)$. Therefore, for the Poisson process $N(t) \sim \hbox{Pois}(\lambda t)$,
+\[ \frac{N(n)}{n} \to \lambda\hspace*{1em} \hbox{as }n\to\infty.\; a.e. \]
+Now, for every rational $t = p/q$, if we re-parametrize $N(p/q) = N'(p) \sim \hbox{Pois}(p \frac{\lambda}{q})$ and denote $N'(p) = \sum_{i = 1}^{p} N_i'$ where $N'_i \sim \hbox{Pois}(\lambda/q)$ we will obtain
+\[ \frac{N(p/q)}{p/q} = q \frac{1}{p} \sum_{i = 1}^{p} N_i' \to q \frac{\lambda}{q} = \lambda, \]
+For every $q\in \N$ $\N/q$, the sequence $\frac{N(p/q)}{p/q}$ converges almost everywhere to $\lambda$. Therefore, we can assert that for every increasing sequence of rational numbers $(t_n)_{n\in\N}$, the sequence $\frac{t_n}{t_n}$ converges almost everywhere to $\lambda$.
+
+Finally, $N(t)/t \to \lambda$ a.e. in a dense subset (rational $t$), thus, $N(t)/t$ converges almost everywhere to $\lambda$. 
+
+Let $N(t) \sim \hbox{Pois}(\lambda t)$, define $\overline{N}(t) = \frac{N(t) - \lambda t}{\sqrt{\lambda t}}$
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    M_{\overline{N}(t)}(x) & = & \E \left[ \exp \left( x \frac{N(t)-\lambda t}{\sqrt{\lambda t}} \right) \right]\\
+    & = &  \exp(-x\sqrt{\lambda t}) \cdot \E \left[ \exp \left( x \frac{N(t)}{\sqrt{\lambda t}} \right) \right] \\
+    & = & \exp(-x\sqrt{\lambda t}) \cdot M_{N(t)}(x/\sqrt{\lambda t})\\
+    & = & \exp(-x\sqrt{\lambda t}) \cdot \exp\left( \lambda t (e^{x/\sqrt{\lambda t}}-1) \right)\\
+    & = & \exp \left[ -x\sqrt{\lambda t} + \lambda t \left( \sum_{k = 1}^{\infty} \frac{x^k}{k!(\lambda t)^{k/2}} \right) \right]\\
+    & = & \exp \left[ -x\sqrt{\lambda t} + x\sqrt{\lambda t} + x^2/2 + o(t^{-1/2})  \right]\\
+    & \overset{t\to\infty}{\longrightarrow} & e^{x^2/2} = M_{Z}(x)
+\end{array}  \]
+Where $Z \sim N(0,1)$. Therefore, the normalized process converges to the standard normal distribution when the time goes to infinity.

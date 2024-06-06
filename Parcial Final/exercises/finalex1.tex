@@ -1,0 +1,129 @@
+% chktex-file 9 chktex-file 17 chktex-file 36 chktex-file 3
+\section{Exercise 1}
+
+Consider a compound Poisson process with rate $\lambda$ and increment distribution $\mu$.
+
+Calculate the characteristic function, the exponential moments (if finite), the mean, the variance and the density (in the simplest form) for
+
+\begin{enumerate}[label=(\alph*)]
+    \item $\lambda = 1,\; \mu = \hbox{EXP}(1)$.
+    \item $\lambda > 0,\; \mu = \hbox{EXP}(\kappa), \kappa > 0$.
+    \item $\lambda = 1,\; \mu = N(0,1)$.
+    \item $\lambda > 0,\; \mu = N(m,\sigma^2), m\in\R, \sigma > 0$.
+    \item $\lambda = 1,\; \mu = \hbox{Geo}(\tfrac{1}{2})$.
+    \item $\lambda > 0,\; \mu = \hbox{Geo}(p)$.
+\end{enumerate}
+
+\subsection*{Solution Characteristic Function}
+
+Let $Z\sim \mu$ and $N(t) \sim \hbox{Pois}(\lambda t)$. According to Lemma 4.4 from the notes, if $C \sim \hbox{CPP}(\lambda t, \mu)$, then its characteristic function is
+\[ \phi_{C_t}(z) = \E[e^{iz C_t}] = e^{\lambda t(\phi_Z(z) - 1)}. \]
+Thus, in every case, this function should be
+
+\begin{enumerate}[label=(\alph*)]
+    \item The characteristic function for the exponential distribution $Z \sim \hbox{EXP}(\kappa)$ is
+    \[ \phi_Z(z) = ( 1 - iz\kappa^{-1})^{-1}. \]
+    Thus, for $\kappa = 1$ and $\lambda = 1$,
+    \[ \phi_{C_t}(z) = \exp\left[  t\cdot\left( \frac{1}{1 - iz} - 1 \right) \right] = \exp\left( t\cdot\frac{ iz}{1- iz} \right).\]
+
+    \item Now, in general, for $\kappa > 0$ and $\lambda > 0$,
+    \[ \phi_{C_t}(t) = \exp\left[ \lambda t \left( \frac{1}{1 - iz\kappa^{-1}} - 1 \right) \right] = \exp\left(\lambda t\cdot\frac{ iz\kappa^{-1}}{1- iz\kappa^{-1}} \right).\]
+
+    \item The characteristic function for the Normal distribution $Z \sim N(m, \sigma^2)$ is 
+    \[ \phi_Z(z) = \exp \left( izm - \frac{1}{2}\sigma^2 z^2 \right).\]
+    Thus, for $\lambda = 1$, $m = 0$ and $\sigma^2 = 1$,
+    \[ \phi_{C_t}(t) = \exp\left[ t (e^{- \frac{1}{2} z^2} - 1) \right]. \]
+
+    \item Now, in general, for $m \in \R$, $\sigma > 0$ and $\lambda > 0$,
+    \[ \phi_{C_t}(t) = \exp\left[ \lambda t \cdot \exp \left( izm - \frac{1}{2}\sigma^2 z^2 \right) - \lambda t \right]. \]
+
+    \item The characteristic function for the geometric distribution $Z \sim \hbox{Geo}(p)$ is
+    \[ \phi_Z(z) = \frac{p}{e^{-iz}-(1-p)} \]
+    Thus, for $p = \frac{1}{2}$ and $\lambda = 1$,
+    \[ \phi_{C_t}(t) = \exp\left( t\cdot \frac{1/2}{e^{-iz}-1/2} - t \right)  = \exp\left( t\cdot  \frac{1-e^{-iz}}{e^{-iz}-1/2} \right). \]
+
+    \item Now, in general, for $0 < p < 1$ and $\lambda > 0$,
+    \[ \phi_{C_t}(t) = \exp\left[ \lambda t\cdot \left( \frac{p}{e^{-iz}-(1-p)} - 1  \right) \right]. \]
+
+\end{enumerate}
+
+\subsection*{Solution Exponential Moment}
+
+Note that in the proof of $\phi_{C_t}(t) = e^{\lambda t(\phi_Z(z) - 1)}$, the fact that $e^{iz}$ was a complex number. Thus, for the moment generating function
+\[ M_{C_t}(t) = e^{\lambda t(M_Z(z) - 1)} \]
+The same principle applies, but replacing $iz$ by just $z$.
+\begin{enumerate}[label=(\alph*)]
+    \item $ \exp\left( t\cdot\frac{ z}{1- z} \right) $
+    \item $ \exp\left(\lambda t\cdot\frac{ z\kappa^{-1}}{1- z\kappa^{-1}} \right)$
+    \item $ \exp\left[ t (e^{\frac{1}{2} z^2} - 1) \right] $ (The negative sign becomes positive)
+    \item $ \exp\left[ \lambda t \cdot \exp \left( zm + \frac{1}{2}\sigma^2 z^2 \right) - \lambda t \right] $
+    \item $ \exp\left( t\cdot  \frac{1-e^{-z}}{e^{-z}-1/2} \right) $
+    \item $ \exp\left[ \lambda t\cdot \left( \frac{p}{e^{-z}-(1-p)} - 1  \right) \right] $
+\end{enumerate}
+
+
+\subsection*{Solution Expected Value}
+
+We know that if $C_t \sim \hbox{CPP}(\lambda t, \mu)$, then there is a random variable $N(t) \sim \hbox{Pois}(\lambda t)$ and a sequence of i.i.d.\ random variables (independent from $N$) $Z_k \sim \mu$ such that
+\[ C_t = \sum_{k = 1}^{N(t)}Z_k. \]
+Finally, the law of total expectation implies
+\[ \E[C_t] = \E [ \E[C_t\;|\; N(t)] ] = \E [N(t) \cdot \E[Z]] = \E[N(t)] \cdot \E[Z] = \lambda t \cdot \E[Z]. \]
+
+For every item, this expected value is:
+\begin{enumerate}[label=(\alph*)]
+    \item The expected value $\E[Z]$ for $Z \sim \hbox{EXP}(\kappa)$ is $\kappa^{-1}$. Thus, for $\kappa = 1$ and $\lambda = 1$,
+    \[ \E[C_t] = \lambda t \cdot \E[Z] = t \cdot 1^{-1} = t. \]
+
+    \item For the general case,
+    \[ \E[C_t] = \lambda t  \cdot  \E[Z] = \lambda t\cdot \kappa^{-1}. \]
+
+    \item The expected value $\E[Z]$ for $Z \sim N(m,\sigma^2)$ is $m$. Thus, for $m = 0$, $\sigma^2 = 1$ and $\lambda = 1$,
+    \[ \E[C_t] = \lambda t  \cdot  \E[Z] = \lambda t\cdot m = 0. \]
+
+    \item For the general case,
+    \[ \E[C_t] = \lambda t  \cdot  \E[Z] = \lambda t\cdot m. \]
+
+    \item The expected value $\E[Z]$ for $Z \sim \hbox{Geo}(p)$ is $p^{-1}$. Thus, for $p = 1/2$ and $\lambda = 1$,
+    \[ \E[C_t] = \lambda t  \cdot  \E[Z] = t \cdot (1/2)^{-1} = 2 t. \]
+
+    \item For the general case,
+    \[ \E[C_t] = \lambda t  \cdot  \E[Z] = \lambda t\cdot p^{-1}. \]
+\end{enumerate}
+
+
+\subsection*{Solution Variance}
+Remember that for a constant $c\in\R$,
+\[ \Var[cN] = c^2 \Var(N), \]
+thus,
+\[ \Var[N \cdot \E[Z]] = \E[Z]^2 \cdot \Var[N]  \]
+
+The law of total variance states that
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \Var[C_t] & = & \E[\Var[C_t\;|\; N(t)]] + \Var[\E[C_t\;|\; N(t)]].\\
+    & = & \E[N(t) \cdot\Var[Z]] + \Var[N(t) \cdot\E[Z]]\\
+    & = & \E[N(t)] \cdot \Var[Z] +  \E[Z]^2 \cdot \Var[N(t)]\\
+    & = & \lambda t \cdot \Var[Z] + \lambda t  \cdot  \E[Z]^2.
+\end{array}\]
+
+Now, for every item, the variance is:
+\begin{enumerate}[label=(\alph*)]
+    \item The variance $\Var[Z]$ for $Z \sim \hbox{EXP}(\kappa)$ is $\kappa^{-2}$. Thus, for $\kappa = 1$ and $\lambda = 1$,
+    \[ \Var[C_t] = \lambda t \cdot \Var[Z] + \lambda t  \cdot  \E[Z]^2 = t\cdot 1^{-2} + t\cdot (1^{-1})^2 = 2t. \]
+
+    \item For the general case,
+    \[ \Var[C_t] = \lambda t \cdot \Var[Z] + \lambda t  \cdot  \E[Z]^2 = \lambda t \cdot \kappa^{-2} + \lambda t (\kappa^{-1})^2 = 2\lambda t\cdot\kappa^{-2}. \]
+
+    \item The variance $\Var[Z]$ for $Z \sim N(m,\sigma^2)$ is $\sigma^2$. Thus, for $m = 0$, $\sigma^2 = 1$ and $\lambda = 1$,
+    \[ \Var[C_t] = \lambda t \cdot \Var[Z] + \lambda t  \cdot  \E[Z]^2 = t\cdot 1 + 0 = t. \]
+
+    \item For the general case,
+    \[ \Var[C_t] = \lambda t \cdot \Var[Z] + \lambda t  \cdot  \E[Z]^2 = \lambda t\cdot \sigma^2 + \lambda t\cdot m^2. \]
+
+    \item The variance $\Var[Z]$ for $Z \sim \hbox{Geo}(p)$ is $\frac{1-p}{p^2}$. Thus, for $p = 1/2$ and $\lambda = 1$,
+    \[ \Var[C_t] = \lambda t \cdot \Var[Z] + \lambda t  \cdot  \E[Z]^2 = t\cdot (1/2)^{-1} + t\cdot (1/2)^{-2} = 6 t. \]
+
+    \item For the general case,
+    \[ \Var[C_t] = \lambda t \cdot \Var[Z] + \lambda t  \cdot  \E[Z]^2 = \lambda t\cdot \frac{1-p}{p^2} + \lambda t \cdot p^{-2} = \lambda t \cdot p^{-2} (2-p). \]
+\end{enumerate}

@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{n}{P\PYGZus{}matrix} \PYG{o}{=} \PYG{n}{sci}\PYG{o}{.}\PYG{n}{linalg}\PYG{o}{.}\PYG{n}{expm}\PYG{p}{(}\PYG{n}{Q\PYGZus{}matrix}\PYG{p}{)}
+    \PYG{n}{lambda\PYGZus{}invariant\PYGZus{}3} \PYG{o}{=} \PYG{n}{get\PYGZus{}left\PYGZus{}eigenvector}\PYG{p}{(}\PYG{n}{P\PYGZus{}matrix}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}
+\end{Verbatim}

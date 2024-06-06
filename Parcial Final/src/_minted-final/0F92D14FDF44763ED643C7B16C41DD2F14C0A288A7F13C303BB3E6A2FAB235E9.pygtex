@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{n}{lambda\PYGZus{}invariant\PYGZus{}1} \PYG{o}{=} \PYG{n}{mu\PYGZus{}invariant}\PYG{o}{/}\PYG{n}{holding\PYGZus{}rates}
+    \PYG{n}{lambda\PYGZus{}invariant\PYGZus{}1} \PYG{o}{=} \PYG{n}{lambda\PYGZus{}invariant\PYGZus{}1}\PYG{o}{/}\PYG{n}{lambda\PYGZus{}invariant\PYGZus{}1}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{()}
+\end{Verbatim}

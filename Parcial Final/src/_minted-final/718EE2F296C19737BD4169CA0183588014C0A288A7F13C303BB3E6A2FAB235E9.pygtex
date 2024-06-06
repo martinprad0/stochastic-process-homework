@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{n}{lambda\PYGZus{}estimated\PYGZus{}1} \PYG{o}{=} \PYG{n}{average\PYGZus{}visit\PYGZus{}frequency}\PYG{o}{*}\PYG{n}{average\PYGZus{}visit\PYGZus{}length}
+    \PYG{n}{lambda\PYGZus{}estimated\PYGZus{}1} \PYG{o}{=} \PYG{n}{lambda\PYGZus{}estimated\PYGZus{}1} \PYG{o}{/} \PYG{n}{lambda\PYGZus{}estimated\PYGZus{}1}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{()}
+
+    \PYG{n}{bar\PYGZus{}width} \PYG{o}{=} \PYG{l+m+mf}{0.35}
+    \PYG{n}{x} \PYG{o}{=} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{lambda\PYGZus{}estimated\PYGZus{}1}\PYG{p}{))}
+
+    \PYG{n}{fig}\PYG{p}{,} \PYG{n}{ax} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplots}\PYG{p}{()}
+    \PYG{n}{bar1} \PYG{o}{=} \PYG{n}{ax}\PYG{o}{.}\PYG{n}{bar}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{lambda\PYGZus{}estimated\PYGZus{}1}\PYG{p}{,} \PYG{n}{bar\PYGZus{}width}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}\PYGZdl{}\PYGZbs{}hat\PYGZob{}\PYGZbs{}lambda\PYGZcb{}\PYGZus{}i\PYGZdl{}\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{bar2} \PYG{o}{=} \PYG{n}{ax}\PYG{o}{.}\PYG{n}{bar}\PYG{p}{([}\PYG{n}{i} \PYG{o}{+} \PYG{n}{bar\PYGZus{}width} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{x}\PYG{p}{],} \PYG{n}{lambda\PYGZus{}invariant}\PYG{p}{,} \PYG{n}{bar\PYGZus{}width}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+sa}{r}\PYG{l+s+s2}{\PYGZdq{}\PYGZdl{}\PYGZbs{}lambda\PYGZus{}i\PYGZdl{}\PYGZdq{}}\PYG{p}{)}
+
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}xticks}\PYG{p}{([}\PYG{n}{i} \PYG{o}{+} \PYG{n}{bar\PYGZus{}width} \PYG{o}{/} \PYG{l+m+mi}{2} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{x}\PYG{p}{])}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}xticklabels}\PYG{p}{([}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{lambda\PYGZus{}estimated\PYGZus{}1}\PYG{p}{))])}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{()}
+\end{Verbatim}

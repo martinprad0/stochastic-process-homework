@@ -1,14 +1,14 @@
 % chktex-file 3 chktex-file 40
 \section{Modelo Simple de Urnas de Polya}
 
-Las urnas de Polya son una familia de modelos de muestreo cuyo objetivo es proponer una generalización de otros modelos más conocidos de muestreo como el modelo hipergeométrico (muestreo sin reemplazo) y el modelo del experimento de Bernoulli (muestreo con reemplazo). En el caso más sencillo, tenemos una urna con $n = r+g$ bolas, de las cuales $r$ son rojas y $g$ son verdes. Cada que se selecciona una bola de la urna, se añaden $k$ bolas del color seleccionado a la urna.
+Las urnas de Polya son una familia de modelos de muestreo cuyo objetivo es proponer una generalización de otros modelos más conocidos como el modelo hipergeométrico (muestreo sin reemplazo) y el modelo del experimento de Bernoulli (muestreo con reemplazo). El caso que se va a trabajar dentro de este proyecto es el más sencillo, tenemos una urna con $n = r+g$ bolas, de las cuales $r$ son rojas y $g$ son verdes. Cada que se selecciona una bola de la urna, se añaden $I$ bolas del color seleccionado a la urna.
 
 Identifiquemos al color verde con el número 0 y al color rojo con el número 1. Sea $X_i$ la variable que denota el color de la bola escogida aleatoriamente dentro del modelo, tenemos las siguientes observaciones:
 
 \begin{remark} Algunos casos particulares de las urnas de Polya son:
     \begin{itemize}
-        \item Si $k = 0$, entonces $X_i \sim \text{Ber}\left( \frac{r}{n} \right)$. Por lo tanto, $\sum_{i = 1}^{m} X_i \sim \text{Bin}(m,\frac{r}{n})$, en donde $\text{Bin}$ es la distribución binomial.
-        \item Si $k = -1$, entonces $X_m \sim \text{Ber}\left( \dfrac{r-\sum_{i = 1}^{m-1} X_i}{n-i} \right)$. Por lo tanto, $\sum_{i = 1}^{m} X_i \sim \text{HG}(n,r,m)$, en donde $\text{HG}$ es la distribución hipergeométrica.
+        \item Si $I = 0$, entonces $X_i \sim \text{Ber}\left( \frac{r}{n} \right)$. Por lo tanto, $\sum_{i = 1}^{m} X_i \sim \text{Bin}(m,\frac{r}{n})$, en donde $\text{Bin}$ es la distribución binomial.
+        \item Si $I = -1$, entonces $X_m \sim \text{Ber}\left( \dfrac{r-\sum_{i = 1}^{m-1} X_i}{n-i} \right)$. Por lo tanto, $\sum_{i = 1}^{m} X_i \sim \text{HG}(n,r,m)$, en donde $\text{HG}$ es la distribución hipergeométrica.
     \end{itemize}
 \end{remark}
 

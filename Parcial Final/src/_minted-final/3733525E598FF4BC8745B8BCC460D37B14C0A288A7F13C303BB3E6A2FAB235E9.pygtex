@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{k}{def} \PYG{n+nf}{get\PYGZus{}visit\PYGZus{}frequency}\PYG{p}{(}\PYG{n}{trajectory}\PYG{p}{):}
+        \PYG{n}{trajectory} \PYG{o}{=} \PYG{n}{trajectories}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
+        \PYG{n}{time\PYGZus{}list}\PYG{p}{,} \PYG{n}{state\PYGZus{}list} \PYG{o}{=} \PYG{n}{trajectory}
+        \PYG{n}{state\PYGZus{}list} \PYG{o}{=} \PYG{n}{state\PYGZus{}list}\PYG{p}{[:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}
+        \PYG{n}{values}\PYG{p}{,} \PYG{n}{indices}\PYG{p}{,} \PYG{n}{counts} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{unique}\PYG{p}{(}\PYG{n}{state\PYGZus{}list}\PYG{p}{[}\PYG{n}{state\PYGZus{}list}\PYG{o}{.}\PYG{n}{argsort}\PYG{p}{()],}
+            \PYG{n}{return\PYGZus{}counts}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{,} \PYG{n}{return\PYGZus{}index}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
+
+        \PYG{n}{visit\PYGZus{}frequency} \PYG{o}{=} \PYG{n}{counts}\PYG{o}{/}\PYG{n}{counts}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{()}
+        \PYG{k}{return} \PYG{n}{visit\PYGZus{}frequency}
+\end{Verbatim}

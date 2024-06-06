@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.3.20)  5 JUN 2024 19:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.3.20)  5 JUN 2024 20:00
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/martin/Documents/VSCode/Latex/stochastic-process-homework/Proyecto/src/main.tex
-(/home/martin/Documents/VSCode/Latex/stochastic-process-homework/Proyecto/src/main.tex
+**"/home/martin/Documents/VSCode/Latex/stochastic-process-homework/Parcial Final/src/final.tex"
+(/home/martin/Documents/VSCode/Latex/stochastic-process-homework/Parcial Final/src/final.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22> (/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrartcl.cls
 Document Class: scrartcl 2022/10/12 v3.38 KOMA-Script document class (article)
@@ -719,6 +719,145 @@ Package: multicol 2021/11/30 v1.9d multicolumn formatting (FMi)
 \mult@nat@firstbox=\box114
 \colbreak@box=\box115
 \mc@col@check@num=\count338
+) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count339
+\lst@gtempboxa=\box116
+\lst@token=\toks48
+\lst@length=\count340
+\lst@currlwidth=\dimen293
+\lst@column=\count341
+\lst@pos=\count342
+\lst@lostspace=\dimen294
+\lst@width=\dimen295
+\lst@newlines=\count343
+\lst@lineno=\count344
+\lst@maxwidth=\dimen296
+ (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
+\c@lstnumber=\count345
+\lst@skipnumbers=\count346
+\lst@framebox=\box117
+) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2023/02/27 1.9 listings configuration
+))
+Package: listings 2023/02/27 1.9 (Carsten Heinz)
+ (/usr/share/texlive/texmf-dist/tex/latex/minted/minted.sty
+Package: minted 2022/12/12 v2.7 Yet another Pygments shim for LaTeX
+ (/usr/share/texlive/texmf-dist/tex/latex/fvextra/fvextra.sty
+Package: fvextra 2022/11/30 v1.5 fvextra - extensions and patches for fancyvrb
+ (/usr/share/texlive/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2023/01/19 4.5a verbatim text (tvz,hv)
+\FV@CodeLineNo=\count347
+\FV@InFile=\read3
+\FV@TabBox=\box118
+\c@FancyVerbLine=\count348
+\FV@StepNumber=\count349
+\FV@OutFile=\write4
+) (/usr/share/texlive/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
+) (/usr/share/texlive/texmf-dist/tex/latex/lineno/lineno.sty
+Package: lineno 2023/01/19 line numbers on paragraphs v5.1
+\linenopenalty=\count350
+\output=\toks49
+\linenoprevgraf=\count351
+\linenumbersep=\dimen297
+\linenumberwidth=\dimen298
+\c@linenumber=\count352
+\c@pagewiselinenumber=\count353
+\c@LN@truepage=\count354
+\c@internallinenumber=\count355
+\c@internallinenumbers=\count356
+\quotelinenumbersep=\dimen299
+\bframerule=\dimen300
+\bframesep=\dimen301
+\bframebox=\box119
+\linenoamsmath@ams@eqpen=\count357
+LaTeX Info: Redefining \\ on input line 3131.
+)
+\c@FV@TrueTabGroupLevel=\count358
+\c@FV@TrueTabCounter=\count359
+\FV@TabBox@Group=\box120
+\FV@TmpLength=\skip79
+\c@FV@HighlightLinesStart=\count360
+\c@FV@HighlightLinesStop=\count361
+\FV@LoopCount=\count362
+\FV@NCharsBox=\box121
+\FV@BreakIndent=\dimen302
+\FV@BreakIndentNChars=\count363
+\FV@BreakSymbolSepLeft=\dimen303
+\FV@BreakSymbolSepLeftNChars=\count364
+\FV@BreakSymbolSepRight=\dimen304
+\FV@BreakSymbolSepRightNChars=\count365
+\FV@BreakSymbolIndentLeft=\dimen305
+\FV@BreakSymbolIndentLeftNChars=\count366
+\FV@BreakSymbolIndentRight=\dimen306
+\FV@BreakSymbolIndentRightNChars=\count367
+\c@FancyVerbLineBreakLast=\count368
+\FV@LineBox=\box122
+\FV@LineIndentBox=\box123
+\c@FV@BreakBufferDepth=\count369
+\FV@LineWidth=\dimen307
+) (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+) (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count370
+\calc@Bcount=\count371
+\calc@Adimen=\dimen308
+\calc@Bdimen=\dimen309
+\calc@Askip=\skip80
+\calc@Bskip=\skip81
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count372
+\calc@Cskip=\skip82
+) (/usr/share/texlive/texmf-dist/tex/latex/tools/shellesc.sty
+Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
+Package shellesc Info: Unrestricted shell escape enabled on input line 75.
+) (/usr/share/texlive/texmf-dist/tex/latex/ifplatform/ifplatform.sty
+Package: ifplatform 2017/10/13 v0.4a Testing for the operating system
+ (/usr/share/texlive/texmf-dist/tex/generic/catchfile/catchfile.sty
+Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+)
+runsystem(uname -s > "final.w18")...executed.
+
+ (./final.w18)
+runsystem(rm -- "final.w18")...executed.
+
+) (/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.sty (/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.tex
+\integerpart=\count373
+\decimalpart=\count374
+)
+Package: xstring 2023/01/14 v1.85 String manipulations (CT)
+) (/usr/share/texlive/texmf-dist/tex/latex/framed/framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip83
+\fb@frw=\dimen310
+\fb@frh=\dimen311
+\FrameRule=\dimen312
+\FrameSep=\dimen313
+)
+\minted@appexistsfile=\read4
+\minted@bgbox=\box124
+\minted@code=\write5
+\c@minted@FancyVerbLineTemp=\count375
+\c@minted@pygmentizecounter=\count376
+\@float@every@listing=\toks50
+\c@listing=\count377
+)
+runsystem(mkdir -p _minted-final)...executed.
+
+ (/usr/share/texlive/texmf-dist/tex/latex/scalerel/scalerel.sty
+Package: scalerel 2016/12/29 v1.8 Routines for constrained scaling and stretching of objects, relative to a reference object or in absolute terms
+\thesrwidth=\skip84
+\thesrheight=\skip85
+\srblobheight=\skip86
+\srblobdepth=\skip87
+\mnxsrwidth=\skip88
+\LMex=\skip89
+\LMpt=\skip90
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.code.tex
 File: tikzlibraryshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.geometric.code.tex
@@ -741,37 +880,35 @@ File: pgflibraryshapes.arrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: tikzlibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multipart.code.tex
 File: pgflibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodepartlowerbox=\box116
-\pgfnodeparttwobox=\box117
-\pgfnodepartthreebox=\box118
-\pgfnodepartfourbox=\box119
-\pgfnodeparttwentybox=\box120
-\pgfnodepartnineteenbox=\box121
-\pgfnodeparteighteenbox=\box122
-\pgfnodepartseventeenbox=\box123
-\pgfnodepartsixteenbox=\box124
-\pgfnodepartfifteenbox=\box125
-\pgfnodepartfourteenbox=\box126
-\pgfnodepartthirteenbox=\box127
-\pgfnodeparttwelvebox=\box128
-\pgfnodepartelevenbox=\box129
-\pgfnodeparttenbox=\box130
-\pgfnodepartninebox=\box131
-\pgfnodeparteightbox=\box132
-\pgfnodepartsevenbox=\box133
-\pgfnodepartsixbox=\box134
-\pgfnodepartfivebox=\box135
+\pgfnodepartlowerbox=\box125
+\pgfnodeparttwobox=\box126
+\pgfnodepartthreebox=\box127
+\pgfnodepartfourbox=\box128
+\pgfnodeparttwentybox=\box129
+\pgfnodepartnineteenbox=\box130
+\pgfnodeparteighteenbox=\box131
+\pgfnodepartseventeenbox=\box132
+\pgfnodepartsixteenbox=\box133
+\pgfnodepartfifteenbox=\box134
+\pgfnodepartfourteenbox=\box135
+\pgfnodepartthirteenbox=\box136
+\pgfnodeparttwelvebox=\box137
+\pgfnodepartelevenbox=\box138
+\pgfnodeparttenbox=\box139
+\pgfnodepartninebox=\box140
+\pgfnodeparteightbox=\box141
+\pgfnodepartsevenbox=\box142
+\pgfnodepartsixbox=\box143
+\pgfnodepartfivebox=\box144
 ))) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex
 File: tikzlibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
 File: pgflibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\arrowsize=\dimen293
+\arrowsize=\dimen314
 )) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
 File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/share/texlive/texmf-dist/tex/latex/l3experimental/l3sys-shell/l3sys-shell.sty
-Package: l3sys-shell 2023-01-24 L3 Experimental system shell functions
 ) (/usr/share/texlive/texmf-dist/tex/latex/bbm-macros/bbm.sty
 Package: bbm 1999/03/15 V 1.2 provides fonts for set symbols - TH
 LaTeX Font Info:    Overwriting math alphabet `\mathbbm' in version `bold'
@@ -781,59 +918,66 @@ LaTeX Font Info:    Overwriting math alphabet `\mathbbmss' in version `bold'
 ) (/usr/share/texlive/texmf-dist/tex/latex/doublestroke/dsfont.sty
 Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
 )
-\c@theorem=\count339
-\c@definition=\count340
-\c@corollary=\count341
- (./main.aux)
-\openout1 = `main.aux'.
+\c@theorem=\count378
+\c@definition=\count379
+\c@corollary=\count380
+ (/usr/share/texlive/texmf-dist/tex/latex/l3experimental/l3sys-shell/l3sys-shell.sty
+Package: l3sys-shell 2023-01-24 L3 Experimental system shell functions
+)
+runsystem(which pygmentize && touch final.aex)...executed.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-Package scrbase Info: activating english \abstractname on input line 84.
-Package scrbase Info: activating english \partname on input line 84.
-Package scrbase Info: activating english \figurename on input line 84.
-Package scrbase Info: activating english \tablename on input line 84.
-Package scrbase Info: activating english \contentsname on input line 84.
-Package scrbase Info: activating english \listfigurename on input line 84.
-Package scrbase Info: activating english \listtablename on input line 84.
-Package scrbase Info: activating english \refname on input line 84.
-Package scrbase Info: activating english \indexname on input line 84.
+runsystem(rm final.aex)...executed.
+
+ (./final.aux)
+\openout1 = `final.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+Package scrbase Info: activating english \abstractname on input line 93.
+Package scrbase Info: activating english \partname on input line 93.
+Package scrbase Info: activating english \figurename on input line 93.
+Package scrbase Info: activating english \tablename on input line 93.
+Package scrbase Info: activating english \contentsname on input line 93.
+Package scrbase Info: activating english \listfigurename on input line 93.
+Package scrbase Info: activating english \listtablename on input line 93.
+Package scrbase Info: activating english \refname on input line 93.
+Package scrbase Info: activating english \indexname on input line 93.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count342
-\scratchdimen=\dimen294
-\scratchbox=\box136
-\nofMPsegments=\count343
-\nofMParguments=\count344
-\everyMPshowfont=\toks48
-\MPscratchCnt=\count345
-\MPscratchDim=\dimen295
-\MPnumerator=\count346
-\makeMPintoPDFobject=\count347
-\everyMPtoPDFconversion=\toks49
+\scratchcounter=\count381
+\scratchdimen=\dimen315
+\scratchbox=\box145
+\nofMPsegments=\count382
+\nofMParguments=\count383
+\everyMPshowfont=\toks51
+\MPscratchCnt=\count384
+\MPscratchDim=\dimen316
+\MPnumerator=\count385
+\makeMPintoPDFobject=\count386
+\everyMPtoPDFconversion=\toks52
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 84.
+Package hyperref Info: Link coloring ON on input line 93.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -872,55 +1016,187 @@ Package hyperref Info: Link coloring ON on input line 84.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: float package is loaded.
+Package caption Info: listings package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 86.
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+)
+\c@lstlisting=\count387
+LaTeX Font Info:    Trying to load font information for U+msa on input line 95.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 86.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 95.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 86.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 95.
  (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-) (|ls -1 ../chapters/*) (../chapters/chapter1.tex
-Overfull \hbox (4.15141pt too wide) in paragraph at lines 11--12
-[]\OT1/cmr/m/n/10.95 Si $\OML/cmm/m/it/10.95 I \OT1/cmr/m/n/10.95 = \OMS/cmsy/m/n/10.95 ^^@\OT1/cmr/m/n/10.95 1$, en-tonces $\OML/cmm/m/it/10.95 X[] \OMS/cmsy/m/n/10.95 ^^X [] []$\OT1/cmr/m/n/10.95 . Por lo tanto, $[][] \OML/cmm/m/it/10.95 X[] \OMS/cmsy/m/n/10.95 ^^X []\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 n; r; m\OT1/cmr/m/n/10.95 )$,
- []
-
-[1
+) (|ls -1 ../exercises/*) (../exercises/finalex1.tex [1
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]) (../chapters/chapter2.tex [2] [3] [4]) (../chapters/chapter3.tex
-Overfull \hbox (19.65031pt too wide) in paragraph at lines 7--8
-[][]\OT1/cmr/bx/n/10.95 Definici^^Son 3.1 \OT1/cmr/m/n/10.95 (Vari-able In-ter-cam-bi-able)\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/n/10.95 Para una sucesi^^Son de vari-ables aleato-rias $\OML/cmm/m/it/10.95 X[]; [] ; X[]$
- []
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4]) (../exercises/finalex2.tex (../figures/figure0.tex) [5]
+\openout4 = `final.pyg'.
 
+ (./_minted-final/github-dark.pygstyle) (./_minted-final/3BA84F723988FEC72BCFE2B8A715619514C0A288A7F13C303BB3E6A2FAB235E9.pygtex) (../figures/figure1.tex) (../figures/figure2.tex) [6]
+\openout4 = `final.pyg'.
 
-Overfull \hbox (2.32314pt too wide) in paragraph at lines 12--13
-[]\OT1/cmr/bx/n/10.95 Observaci^^Son. []\OT1/cmr/m/n/10.95 Note que de la definici^^Son se sigue que las den-si-dades $\OML/cmm/m/it/10.95 f[]; [] ; f[]$ \OT1/cmr/m/n/10.95 de $\OML/cmm/m/it/10.95 X[]; [] ; X[]$
- []
+ (./_minted-final/EFD6E3E43B21327487CFB68E84A51BA614C0A288A7F13C303BB3E6A2FAB235E9.pygtex
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <9> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 2.
+)
+\openout4 = `final.pyg'.
 
-[5] [6]) (../chapters/chapter4.tex [7] [8] [9]
-LaTeX Font Info:    Trying to load font information for U+dsrom on input line 75.
+ (./_minted-final/1BD8E2C47E3FC42A5A4504088B81A12514C0A288A7F13C303BB3E6A2FAB235E9.pygtex) [7]
+\openout4 = `final.pyg'.
+
+ (./_minted-final/BA3C723D97E6A2BEB328F190F31264D314C0A288A7F13C303BB3E6A2FAB235E9.pygtex)
+\openout4 = `final.pyg'.
+
+ (./_minted-final/624F40D6CA53D6B1103CEC27360A529614C0A288A7F13C303BB3E6A2FAB235E9.pygtex) [8]
+\openout4 = `final.pyg'.
+
+ (./_minted-final/3986CD88CF020C173CB983869BE8C11514C0A288A7F13C303BB3E6A2FAB235E9.pygtex)
+\openout4 = `final.pyg'.
+
+ (./_minted-final/0F92D14FDF44763ED643C7B16C41DD2F14C0A288A7F13C303BB3E6A2FAB235E9.pygtex)
+\openout4 = `final.pyg'.
+
+ (./_minted-final/29B72C012E6C541094A4434354D6321514C0A288A7F13C303BB3E6A2FAB235E9.pygtex)
+\openout4 = `final.pyg'.
+
+ (./_minted-final/D3BF9FC850023A2050829DFBE5EDEE2014C0A288A7F13C303BB3E6A2FAB235E9.pygtex) [9]
+\openout4 = `final.pyg'.
+
+ (./_minted-final/240628039B811488387B084F8F58D93E14C0A288A7F13C303BB3E6A2FAB235E9.pygtex) [10]
+\openout4 = `final.pyg'.
+
+ (./_minted-final/785FCA753EE94C275E502B7B0017A2E814C0A288A7F13C303BB3E6A2FAB235E9.pygtex)
+\openout4 = `final.pyg'.
+
+ (./_minted-final/064A8E858FD9E0B64E4C7F5E46C245F114C0A288A7F13C303BB3E6A2FAB235E9.pygtex) [11]
+<../pictures/2.e.9.png, id=119, 536.0025pt x 414.54875pt>
+File: ../pictures/2.e.9.png Graphic file (type png)
+<use ../pictures/2.e.9.png>
+Package pdftex.def Info: ../pictures/2.e.9.png  used on input line 196.
+(pdftex.def)             Requested size: 212.47617pt x 164.33006pt.
+<../pictures/2.e.10.png, id=120, 536.0025pt x 414.54875pt>
+File: ../pictures/2.e.10.png Graphic file (type png)
+<use ../pictures/2.e.10.png>
+Package pdftex.def Info: ../pictures/2.e.10.png  used on input line 202.
+(pdftex.def)             Requested size: 212.47617pt x 164.33006pt.
+LaTeX Font Info:    Trying to load font information for U+dsrom on input line 211.
  (/usr/share/texlive/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-)) (./main.bbl) [10] (./main.aux) ) 
+)
+\openout4 = `final.pyg'.
+
+ (./_minted-final/3733525E598FF4BC8745B8BCC460D37B14C0A288A7F13C303BB3E6A2FAB235E9.pygtex)
+\openout4 = `final.pyg'.
+
+ [12 <../pictures/2.e.9.png> <../pictures/2.e.10.png>] (./_minted-final/24BA97414C60F54695CBCE5B2BB9909C14C0A288A7F13C303BB3E6A2FAB235E9.pygtex)
+<../pictures/2.e.1.png, id=129, 558.085pt x 414.54875pt>
+File: ../pictures/2.e.1.png Graphic file (type png)
+<use ../pictures/2.e.1.png>
+Package pdftex.def Info: ../pictures/2.e.1.png  used on input line 246.
+(pdftex.def)             Requested size: 212.47617pt x 157.82745pt.
+<../pictures/2.e.2.png, id=130, 558.085pt x 414.54875pt>
+File: ../pictures/2.e.2.png Graphic file (type png)
+<use ../pictures/2.e.2.png>
+Package pdftex.def Info: ../pictures/2.e.2.png  used on input line 252.
+(pdftex.def)             Requested size: 212.47617pt x 157.82745pt.
+\openout4 = `final.pyg'.
+
+ [13 <../pictures/2.e.1.png> <../pictures/2.e.2.png>] (./_minted-final/5D1FB8BAF482CDF5E4FD41655B869A5214C0A288A7F13C303BB3E6A2FAB235E9.pygtex)
+\openout4 = `final.pyg'.
+
+ (./_minted-final/4D7FD22D593B0E14570D4C01956CA7AD14C0A288A7F13C303BB3E6A2FAB235E9.pygtex)
+<../pictures/2.e.3.png, id=139, 549.05125pt x 414.54875pt>
+File: ../pictures/2.e.3.png Graphic file (type png)
+<use ../pictures/2.e.3.png>
+Package pdftex.def Info: ../pictures/2.e.3.png  used on input line 308.
+(pdftex.def)             Requested size: 212.47617pt x 160.4209pt.
+<../pictures/2.e.4.png, id=140, 549.05125pt x 414.54875pt>
+File: ../pictures/2.e.4.png Graphic file (type png)
+<use ../pictures/2.e.4.png>
+Package pdftex.def Info: ../pictures/2.e.4.png  used on input line 314.
+(pdftex.def)             Requested size: 212.47617pt x 160.4209pt.
+ [14]
+\openout4 = `final.pyg'.
+
+ (./_minted-final/718EE2F296C19737BD4169CA0183588014C0A288A7F13C303BB3E6A2FAB235E9.pygtex)
+<../pictures/2.e.6.png, id=145, 558.085pt x 414.54875pt>
+File: ../pictures/2.e.6.png Graphic file (type png)
+<use ../pictures/2.e.6.png>
+Package pdftex.def Info: ../pictures/2.e.6.png  used on input line 346.
+(pdftex.def)             Requested size: 212.47617pt x 157.82745pt.
+<../pictures/2.e.5.png, id=146, 558.085pt x 414.54875pt>
+File: ../pictures/2.e.5.png Graphic file (type png)
+<use ../pictures/2.e.5.png>
+Package pdftex.def Info: ../pictures/2.e.5.png  used on input line 352.
+(pdftex.def)             Requested size: 212.47617pt x 157.82745pt.
+ [15 <../pictures/2.e.3.png> <../pictures/2.e.4.png>]
+\openout4 = `final.pyg'.
+
+ (./_minted-final/89C14F69F08E1BD0ED3C858AE09C296914C0A288A7F13C303BB3E6A2FAB235E9.pygtex) [16 <../pictures/2.e.6.png> <../pictures/2.e.5.png>]
+\openout4 = `final.pyg'.
+
+ (./_minted-final/38F9628F9613F261A96E6E8E73FFAA9914C0A288A7F13C303BB3E6A2FAB235E9.pygtex)
+<../pictures/2.e.8.png, id=160, 558.085pt x 414.54875pt>
+File: ../pictures/2.e.8.png Graphic file (type png)
+<use ../pictures/2.e.8.png>
+Package pdftex.def Info: ../pictures/2.e.8.png  used on input line 415.
+(pdftex.def)             Requested size: 212.47617pt x 157.82745pt.
+<../pictures/2.e.7.png, id=161, 558.085pt x 414.54875pt>
+File: ../pictures/2.e.7.png Graphic file (type png)
+<use ../pictures/2.e.7.png>
+Package pdftex.def Info: ../pictures/2.e.7.png  used on input line 421.
+(pdftex.def)             Requested size: 212.47617pt x 157.82745pt.
+\openout4 = `final.pyg'.
+
+ [17 <../pictures/2.e.8.png> <../pictures/2.e.7.png>] (./_minted-final/1AAB5B7EE2FD8318F242C2E003F8113714C0A288A7F13C303BB3E6A2FAB235E9.pygtex)
+<../pictures/2.f.1.png, id=168, 536.0025pt x 414.54875pt>
+File: ../pictures/2.f.1.png Graphic file (type png)
+<use ../pictures/2.f.1.png>
+Package pdftex.def Info: ../pictures/2.f.1.png  used on input line 451.
+(pdftex.def)             Requested size: 212.47617pt x 164.33006pt.
+<../pictures/2.f.2.png, id=169, 536.0025pt x 414.54875pt>
+File: ../pictures/2.f.2.png Graphic file (type png)
+<use ../pictures/2.f.2.png>
+Package pdftex.def Info: ../pictures/2.f.2.png  used on input line 457.
+(pdftex.def)             Requested size: 212.47617pt x 164.33006pt.
+\openout4 = `final.pyg'.
+
+ (./_minted-final/202021D8343AAC74892E3CFD367C42C714C0A288A7F13C303BB3E6A2FAB235E9.pygtex) [18 <../pictures/2.f.1.png> <../pictures/2.f.2.png>]
+<../pictures/2.f.3.png, id=176, 558.085pt x 414.54875pt>
+File: ../pictures/2.f.3.png Graphic file (type png)
+<use ../pictures/2.f.3.png>
+Package pdftex.def Info: ../pictures/2.f.3.png  used on input line 493.
+(pdftex.def)             Requested size: 212.47617pt x 157.82745pt.
+<../pictures/2.f.4.png, id=177, 558.085pt x 414.54875pt>
+File: ../pictures/2.f.4.png Graphic file (type png)
+<use ../pictures/2.f.4.png>
+Package pdftex.def Info: ../pictures/2.f.4.png  used on input line 499.
+(pdftex.def)             Requested size: 212.47617pt x 157.82745pt.
+) [19 <../pictures/2.f.3.png> <../pictures/2.f.4.png>] (./final.aux)
+runsystem(rm final.pyg)...executed.
+
+ ) 
 Here is how much of TeX's memory you used:
- 29358 strings out of 476041
- 587690 string characters out of 5793174
- 1866388 words of memory out of 6000000
- 49237 multiletter control sequences out of 15000+600000
- 523783 words of font info for 80 fonts, out of 8000000 for 9000
+ 34537 strings out of 476041
+ 697911 string characters out of 5793174
+ 1895388 words of memory out of 6000000
+ 54212 multiletter control sequences out of 15000+600000
+ 526201 words of font info for 90 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 110i,16n,133p,10676b,612s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on main.pdf (10 pages, 235730 bytes).
+ 110i,17n,133p,10684b,1021s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on final.pdf (19 pages, 676374 bytes).
 PDF statistics:
- 220 PDF objects out of 1000 (max. 8388607)
- 166 compressed objects within 2 object streams
- 44 named destinations out of 1000 (max. 500000)
- 45 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 294 PDF objects out of 1000 (max. 8388607)
+ 216 compressed objects within 3 object streams
+ 82 named destinations out of 1000 (max. 500000)
+ 99 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,0 +1,30 @@
+% chktex-file 3 chktex-file 9 chktex-file 17
+\section{Exercise 2}
+
+Consider two independent Poisson processes with different parameters
+
+\begin{enumerate}[label=(\alph*)]
+    \item The sum of these processes, Which type of process is? Prove it.
+    \item The difference between these processes, Which type of process is? Prove it.
+\end{enumerate}
+
+\subsection*{Solution Part (a)}
+
+The first process can be described by the random variable $N_1(t) \sim \hbox{Pois}(\lambda_1 t)$ and the second by $N_2(t) \sim \hbox{Pois}(\lambda_2 t)$. As we proved in previous assignments, the sum of 2 Poisson random variables is a Poisson random variable with the sum of the parameters. Thus,
+
+\[ N_1(t) + N_2(t) \sim \hbox{Pois}(\lambda_1 t + \lambda_2 t) = \hbox{Pois}((\lambda_1 + \lambda_2) t). \]
+Therefore, it is a Poisson process with parameter $\lambda_1+\lambda_2$.
+
+\subsection*{Solution Part (b)}
+
+The difference between 2 Poisson random variables has the Skellam distribution:
+
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \P\{N_1(t) - N_2(t) = n\} & = & \sum_{k = 0}^{n} \P\{N_1(t) = k\}\P\{N_2(t) = n-k\}\\
+    & = & \sum_{k = 0}^{n} \left( \frac{e^{-\lambda_1 t} \lambda_1^k}{k!} \right)\left( \frac{e^{-\lambda_2 t} \lambda_2^{n-k}}{(n-k)!} \right)\\
+    & = & e^{-(\lambda_1+\lambda_2)t} \sum_{k = 0}^{n} \frac{\lambda_1^k \lambda_2^{n-k}}{k!(n-k)!}\\
+    & = & e^{-(\lambda_1+\lambda_2)t} \left( \frac{\lambda_1}{\lambda_2} \right)^{n/2} I_{|n|}(2\sqrt{\lambda_1 \lambda_2})
+\end{array} \]
+Where $I_{|n|}(x)$ is the modified Bessel function of the first kind.
